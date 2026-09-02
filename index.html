@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
 <meta name="theme-color" content="#111315">
 <meta name="referrer" content="no-referrer">
-<meta name="app-version" content="github-pages-v6.3-mobile-ux">
+<meta name="app-version" content="github-pages-v6.5-total-capacity-4">
 <link rel="manifest" href="manifest.webmanifest">
 <link rel="apple-touch-icon" href="icon-192.jpg">
 <title>COLASANTO Personal Studio</title>
@@ -142,9 +142,10 @@ function renderAgendaDay(){
   for(const sl of slots){
     const list=dayRows.filter(x=>x.slot_time===sl),mine=list.find(x=>x.mine),past=slotStart(ds,sl)<=new Date(),box=document.createElement('div');
     const used={sala:list.filter(x=>x.activity==='sala').length,giuseppe:list.filter(x=>x.activity==='giuseppe').length,amedeo:list.filter(x=>x.activity==='amedeo').length};
-    const avail={sala:Math.max(0,4-used.sala),giuseppe:Math.max(0,1-used.giuseppe),amedeo:Math.max(0,1-used.amedeo)};
+    const totalUsed=list.length,totalFree=Math.max(0,4-totalUsed),slotFull=totalUsed>=4;
+    const avail={sala:!slotFull,giuseppe:!slotFull&&used.giuseppe<1,amedeo:!slotFull&&used.amedeo<1};
     box.className='slot'+(mine?' mine':'')+(past&&!mine?' past-slot':'');
-    const cap=`Sala ${avail.sala}/4 · G ${avail.giuseppe?'libero':'occupato'} · A ${avail.amedeo?'libero':'occupato'}`;
+    const cap=slotFull?`Completo · 4/4 persone`:`${totalFree} ${totalFree===1?'posto libero':'posti liberi'} su 4 · G ${used.giuseppe?'occupato':'libero'} · A ${used.amedeo?'occupato':'libero'}`;
     box.innerHTML=`<div class="slot-head"><strong>${sl}</strong><span class="capacity">${cap}</span></div><div class="who ${mine?'mine-label':''}">${mine?'La tua prenotazione':past?'Orario trascorso':'Scegli dove prenotare'}</div>`;
     if(mine){
       const b=document.createElement('button');b.className='btn red';b.textContent='Annulla prenotazione';
@@ -152,10 +153,10 @@ function renderAgendaDay(){
     }else if(!past){
       const ch=document.createElement('div');ch.className='choices';
       [['Sala','sala','purple'],['PT Giuseppe','giuseppe','red'],['PT Amedeo','amedeo','blue']].forEach(([lab,act,cl])=>{
-        const b=document.createElement('button'),isFull=avail[act]===0;
+        const b=document.createElement('button'),isFull=!avail[act];
         b.className='btn '+cl+(isFull?' disabled':'');
         b.disabled=isFull;
-        b.textContent=isFull?(act==='sala'?'Sala piena':lab+' occupato'):lab;
+        b.textContent=isFull?(slotFull?'Fascia completa':(act==='sala'?'Sala non disponibile':lab+' occupato')):lab;
         b.onclick=async()=>{const dayLabel=d.toLocaleDateString('it-IT',{weekday:'short',day:'numeric',month:'short'});if(!confirm(`Prenotare ${dayLabel} ${sl} · ${lab}?`))return;try{await rpc('client_book',{p_session:session,p_date:ds,p_slot:sl,p_activity:act});await loadProfile();await renderWeek();await loadNextBooking();toast('Prenotazione confermata ✓')}catch(e){alert(e.message);await renderWeek()}};
         ch.appendChild(b)
       });box.appendChild(ch)
