@@ -1,6 +1,6 @@
 {
   "name": "colasanto-client-native",
-  "version": "2.0.0",
+  "version": "2.2.0",
   "private": true,
   "description": "COLASANTO Personal Studio - App Cliente nativa Android/iOS",
   "scripts": {
@@ -12,7 +12,9 @@
     "ios:open": "npx cap open ios"
   },
   "dependencies": {
-    "@capacitor/core": "8.5.1"
+    "@capacitor/core": "8.5.1",
+    "@capacitor/filesystem": "8.1.3",
+    "@capacitor/share": "8.0.1"
   },
   "devDependencies": {
     "@capacitor/cli": "8.5.1",
