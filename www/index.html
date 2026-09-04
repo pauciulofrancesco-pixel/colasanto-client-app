@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
 <meta name="theme-color" content="#111315">
 <meta name="referrer" content="no-referrer">
-<meta name="app-version" content="native-v8-android-ios">
+<meta name="app-version" content="native-v10-android-ios">
 <link rel="apple-touch-icon" href="icon-192.jpg">
 <title>COLASANTO Personal Studio</title>
 <style>
@@ -22,6 +22,8 @@ html{background:var(--bg)}body{margin:0;padding-top:env(safe-area-inset-top);fon
 .week-nav{display:grid;grid-template-columns:52px 1fr 52px;gap:7px;margin:8px 0 6px}.week-nav .btn{margin:0;padding:9px;min-height:42px}.week-title{text-align:center;font-size:12px;color:var(--muted);margin:7px 0 9px}.day-tabs{display:grid;grid-template-columns:repeat(6,1fr);gap:5px;margin:7px 0 11px}.day-tab{border:1px solid var(--line);background:#f7f8f9;color:#59616b;border-radius:11px;padding:7px 2px;min-width:0;text-align:center}.day-tab b{display:block;font-size:10px;text-transform:uppercase;letter-spacing:.03em}.day-tab span{display:block;font-size:16px;font-weight:900;line-height:1.05;margin-top:2px}.day-tab.active{background:var(--dark);border-color:var(--dark);color:#fff}.day-tab.today:not(.active){border-color:#9aa1a9;color:#1c2126}.selected-day{display:flex;align-items:center;justify-content:space-between;gap:8px;margin:5px 1px 8px}.selected-day strong{font-size:15px;text-transform:capitalize}.selected-day small{color:var(--muted);font-size:11px}.slot-list{border:1px solid var(--line);border-radius:15px;overflow:hidden;background:#fff}.slot-row{display:grid;grid-template-columns:88px minmax(0,1fr) auto;align-items:center;gap:9px;padding:9px 10px;border-bottom:1px solid #edf0f2;min-height:58px}.slot-row:last-child{border-bottom:0}.slot-row.mine{background:#edfaf3}.slot-row.full{background:#fafafa}.slot-time{font-size:13px;font-weight:900;white-space:nowrap}.slot-info{min-width:0}.slot-status{font-size:12px;font-weight:800;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}.slot-meta{font-size:10px;color:var(--muted);margin-top:2px}.capacity{font-size:11px;font-weight:800;background:#eef1f3;padding:4px 7px;border-radius:999px;white-space:nowrap}.slot-action{border:0;border-radius:10px;padding:8px 10px;font-size:11px;font-weight:900;min-width:67px;min-height:36px;color:#fff;background:var(--dark)}.slot-action.cancel{background:var(--red)}.slot-action.full{background:#d4d8dc;color:#7b828a}.slot-action:disabled{opacity:1}.calendar-empty{padding:20px;text-align:center;color:var(--muted);font-size:13px}.booking-overlay{position:fixed;z-index:50;inset:0;background:rgba(0,0,0,.48);display:flex;align-items:flex-end;justify-content:center;padding:12px}.booking-sheet{width:min(560px,100%);background:#fff;border-radius:22px 22px 16px 16px;padding:18px;box-shadow:0 -12px 40px rgba(0,0,0,.22);padding-bottom:calc(18px + env(safe-area-inset-bottom))}.booking-sheet h3{margin:0 0 4px;font-size:20px}.booking-sheet p{margin:0 0 13px;color:var(--muted);font-size:13px}.booking-options{display:grid;grid-template-columns:1fr;gap:8px}.booking-options .btn{margin:0}.booking-close{margin-top:8px!important;background:#eef1f4!important;color:#1d2228!important}.mine-label{color:var(--green);font-weight:800}
 .cert-status{border:1px solid var(--line);border-radius:17px;padding:14px;margin-bottom:14px}.cert-status.pending{background:#fff8ea;border-color:#f3d89d}.cert-status.approved{background:#ecfaf3;border-color:#bfe9d1}.cert-status.rejected{background:#fff0f1;border-color:#f4c0c6}.cert-status.none{background:#f6f7f8}.status-line{display:flex;align-items:center;gap:9px;font-weight:900}.status-dot{width:10px;height:10px;border-radius:50%;background:#939ba4}.pending .status-dot{background:var(--amber)}.approved .status-dot{background:var(--green)}.rejected .status-dot{background:var(--red)}.cert-meta{font-size:13px;color:#515962;line-height:1.45;margin-top:8px}.upload-box{background:#f8f9fa;border-radius:16px;padding:13px}.upload-box label{display:block;font-size:12px;color:var(--muted);font-weight:800;margin:5px 2px 2px}.file-name{font-size:12px;color:var(--muted);margin:4px 2px 8px}
 .sheet{max-width:100%}.sheet-toolbar{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin:10px 0 12px}.sheet-toolbar .btn{margin:0}.sheet-compact{display:grid;gap:12px}.sheet-day{border:1px solid var(--line);border-radius:16px;overflow:hidden;background:#fff}.sheet-day-title{padding:11px 13px;background:#eef1f4;font-size:15px;font-weight:900}.exercise-list{display:grid}.exercise-card{border-bottom:1px solid #edf0f2}.exercise-card:last-child{border-bottom:0}.exercise-card details{padding:0}.exercise-card summary{list-style:none;display:grid;grid-template-columns:minmax(0,1fr) auto;gap:10px;align-items:center;padding:11px 12px;cursor:pointer}.exercise-card summary::-webkit-details-marker{display:none}.exercise-main{min-width:0}.exercise-name{font-size:13px;font-weight:900;line-height:1.25}.exercise-line{font-size:11px;color:var(--muted);margin-top:3px}.exercise-badge{font-size:11px;font-weight:900;background:#1c1f23;color:#fff;padding:6px 8px;border-radius:999px;white-space:nowrap}.exercise-details{display:grid;grid-template-columns:1fr 1fr;gap:7px;padding:0 12px 12px}.exercise-detail{background:#f7f8f9;border-radius:10px;padding:8px}.exercise-detail span{display:block;font-size:9px;color:var(--muted);font-weight:800;text-transform:uppercase;letter-spacing:.03em}.exercise-detail strong{display:block;font-size:12px;margin-top:2px;word-break:break-word}.sheet-fallback{overflow:auto}.sheet-fallback table{border-collapse:collapse;width:100%;min-width:600px}.sheet-fallback td,.sheet-fallback th{border:1px solid #ccd1d6;padding:7px;font-size:13px}.download-note{font-size:11px;color:var(--muted);line-height:1.4;margin-top:7px}
+
+.workout-panel{background:#f7f8fa;border:1px solid var(--line);border-radius:16px;padding:12px;margin:10px 0 12px}.workout-top{display:grid;grid-template-columns:1fr auto;gap:8px;align-items:end}.workout-top label{display:block;font-size:10px;color:var(--muted);font-weight:900;text-transform:uppercase;letter-spacing:.04em;margin:0 2px 4px}.workout-top .field{margin:0;padding:11px 12px;min-height:44px}.workout-save{width:auto!important;margin:0!important;min-height:44px!important;padding:10px 14px!important}.workout-status{font-size:11px;color:var(--muted);margin-top:8px;min-height:15px}.sheet-day-title{display:flex;align-items:center;justify-content:space-between;gap:8px}.day-title-text{font-weight:900}.day-log-badge{font-size:10px;background:#dde2e7;color:#343a40;border-radius:999px;padding:5px 7px;white-space:nowrap}.exercise-card.has-log{background:#f6fff9}.exercise-card summary{padding-bottom:10px}.exercise-prescription{display:flex;gap:5px;flex-wrap:wrap;margin-top:5px}.rx-pill{font-size:10px;background:#eef1f4;color:#4a5159;border-radius:999px;padding:3px 6px;font-weight:800}.workout-editor{border-top:1px dashed #dce1e6;padding:10px 12px 12px;background:#fbfcfd}.workout-editor-title{display:flex;justify-content:space-between;gap:8px;align-items:center;margin-bottom:8px}.workout-editor-title strong{font-size:12px}.last-performance{font-size:10px;color:var(--muted);line-height:1.35;margin-bottom:8px}.set-grid{display:grid;gap:6px}.set-row{display:grid;grid-template-columns:34px 1fr 1fr 64px;gap:6px;align-items:center}.set-no{font-size:11px;font-weight:900;text-align:center;background:#eef1f4;border-radius:9px;padding:10px 2px}.set-input{width:100%;min-width:0;border:1px solid #d7dce1;background:#fff;border-radius:9px;padding:9px 7px;font-size:13px;outline:none}.set-input:focus{border-color:#7d8792;box-shadow:0 0 0 2px rgba(23,25,28,.06)}.set-head{display:grid;grid-template-columns:34px 1fr 1fr 64px;gap:6px;margin-bottom:4px;color:var(--muted);font-size:9px;font-weight:900;text-transform:uppercase;text-align:center}.exercise-note{width:100%;border:1px solid #d7dce1;border-radius:9px;padding:8px;margin-top:7px;font-size:12px;resize:vertical;min-height:54px}.save-inline{border:0;border-radius:9px;background:var(--green);color:#fff;font-size:10px;font-weight:900;padding:8px 10px}.copy-last{border:0;border-radius:9px;background:#e8edf2;color:#24292f;font-size:10px;font-weight:900;padding:7px 9px}.workout-help{font-size:11px;color:#5e6670;line-height:1.4;margin:3px 0 0}.pdf-secondary{margin-top:12px;padding-top:10px;border-top:1px solid var(--line)}
 .nav{position:fixed;z-index:20;left:0;right:0;bottom:0;padding:8px max(10px,env(safe-area-inset-right)) calc(8px + env(safe-area-inset-bottom)) max(10px,env(safe-area-inset-left));background:rgba(247,248,249,.94);backdrop-filter:blur(16px);border-top:1px solid #dfe3e7}.nav-inner{max-width:650px;margin:auto;display:grid;grid-template-columns:repeat(3,1fr);gap:7px}.nav button{border:0;background:transparent;color:#5b626b;border-radius:13px;padding:8px 4px;font-size:11px;font-weight:800;min-height:54px}.nav button span{display:block;font-size:20px;margin-bottom:2px}.nav button.active{background:#1c1f23;color:#fff}
 @media(min-width:760px){body{padding-bottom:20px}.wrap{padding:18px}.nav{position:static;background:transparent;border:0;backdrop-filter:none;padding:0 18px 4px}.nav-inner{max-width:900px}.nav button{background:#fff;border:1px solid var(--line);font-size:13px}.nav button span{display:inline;font-size:15px;margin-right:5px}.nav button.active{background:var(--dark)}.quick{grid-template-columns:repeat(3,1fr)}}
 @media(max-width:420px){.wrap{padding:9px}.card{border-radius:17px;padding:14px}.brand{padding:10px}.welcome h2{font-size:21px}.quick{gap:6px}.quick-box{padding:9px}.slot-row{grid-template-columns:78px minmax(0,1fr) auto;gap:7px;padding:8px}.slot-action{min-width:61px;padding:8px 7px}.day-tab{padding:6px 1px}.day-tab span{font-size:15px}}
@@ -32,7 +34,7 @@ html{background:var(--bg)}body{margin:0;padding-top:env(safe-area-inset-top);fon
 <header class="brand"><img src="logo-header.jpg" alt="COLASANTO Personal Studio"></header>
 <div class="wrap">
   <div id="loginCard" class="card login-card">
-    <div class="eyebrow">Area riservata · App nativa v9</div><h1>Accedi alla tua app</h1><p>Usa il numero di telefono registrato in palestra e il tuo PIN personale.</p>
+    <div class="eyebrow">Area riservata · App nativa v10</div><h1>Accedi alla tua app</h1><p>Usa il numero di telefono registrato in palestra e il tuo PIN personale.</p>
     <input id="phone" class="field" type="tel" autocomplete="tel" placeholder="Numero di telefono">
     <input id="pin" class="field" inputmode="numeric" autocomplete="one-time-code" placeholder="PIN">
     <button class="btn" onclick="clientLogin()">Accedi</button><div id="loginMsg"></div>
@@ -69,15 +71,23 @@ html{background:var(--bg)}body{margin:0;padding-top:env(safe-area-inset-top);fon
     </section>
 
     <section id="sheet" class="card hidden">
-      <div class="section-title"><h3>📋 La mia scheda</h3><span class="hint">Vista compatta</span></div>
+      <div class="section-title"><h3>📋 La mia scheda</h3><span class="hint">Diario allenamento</span></div>
       <button class="btn soft no-print" onclick="loadSheet()">↻ Aggiorna scheda</button>
       <div id="sheetMsg"></div>
-      <div id="sheetToolbar" class="sheet-toolbar hidden no-print">
-        <button id="downloadSheetBtn" class="btn green" onclick="downloadSheetPdf()">⬇️ Salva PDF</button>
-        <button id="printBtn" class="btn soft" onclick="printSheet()">🖨️ Stampa / Salva</button>
+      <div id="workoutPanel" class="workout-panel hidden no-print">
+        <div class="workout-top">
+          <div><label>Data allenamento</label><input id="workoutDate" class="field" type="date" onchange="changeWorkoutDate()"></div>
+          <button class="btn green workout-save" onclick="saveWorkoutLog(true)">Salva</button>
+        </div>
+        <div class="workout-help">Apri un esercizio e inserisci <b>carico</b>, <b>ripetizioni realmente chiuse</b> e, se vuoi, RIR e note. I dati restano salvati nel tuo profilo.</div>
+        <div id="workoutStatus" class="workout-status"></div>
       </div>
       <div id="sheetBody" class="sheet"></div>
-      <div id="downloadNote" class="download-note hidden no-print">Il PDF viene scaricato direttamente nella cartella Documenti/COLASANTO del telefono.</div>
+      <div id="sheetToolbar" class="sheet-toolbar hidden no-print pdf-secondary">
+        <button id="downloadSheetBtn" class="btn soft" onclick="downloadSheetPdf()">⬇️ Esporta PDF</button>
+        <button id="printBtn" class="btn soft" onclick="printSheet()">🖨️ Stampa</button>
+      </div>
+      <div id="downloadNote" class="download-note hidden no-print">Il PDF è una copia di consultazione. Per registrare carichi e ripetizioni usa direttamente la scheda qui sopra.</div>
     </section>
   </div>
 </div>
@@ -203,41 +213,84 @@ async function cancelBooking(id){
 async function fileB64(f){return new Promise((ok,no)=>{const r=new FileReader();r.onload=()=>ok(String(r.result).split(',')[1]);r.onerror=no;r.readAsDataURL(f)})}
 el('certFile').addEventListener('change',()=>{el('certFileName').textContent=el('certFile').files?.[0]?.name||'Nessun file selezionato'});
 async function uploadCert(){const f=el('certFile').files?.[0],date=el('certDate').value,msg=el('certMsg'),btn=el('certSendBtn');if(!date){msg.innerHTML='<div class="notice bad">Inserisci la data di scadenza.</div>';return}if(!f){msg.innerHTML='<div class="notice bad">Seleziona il certificato da inviare.</div>';return}if(f.size>5*1024*1024){msg.innerHTML='<div class="notice bad">File troppo grande: massimo 5 MB.</div>';return}if(f.type&&!['application/pdf','image/jpeg','image/png'].includes(f.type)){msg.innerHTML='<div class="notice bad">Sono accettati solo PDF, JPG o PNG.</div>';return}try{btn.disabled=true;btn.textContent='Invio in corso…';msg.innerHTML='';await rpc('client_upload_certificate',{p_session:session,p_file_name:f.name,p_mime_type:f.type,p_expires_on:date,p_base64:await fileB64(f)});el('certFile').value='';el('certFileName').textContent='Nessun file selezionato';await loadProfile();if((client?.certificate?.status||'pending')==='pending')msg.innerHTML='<div class="notice ok"><b>Certificato inviato.</b> Ora è in attesa di verifica da parte della palestra.</div>';else msg.innerHTML=''}catch(e){msg.innerHTML=`<div class="notice bad">${esc(e.message)}</div>`}finally{btn.disabled=false;btn.textContent='Invia certificato alla palestra'}}
-let currentSheet=null;
+let currentSheet=null,workoutHistory=[],workoutSaveTimer=null;
 function cleanText(v){return String(v??'').replace(/\s+/g,' ').trim()}
+function intSeries(v){const n=parseInt(String(v||'').match(/\d+/)?.[0]||'1',10);return Math.max(1,Math.min(10,isFinite(n)?n:1))}
+function todayISO(){return dateISO(new Date())}
+function entryKey(dayIndex,exerciseIndex,setNumber){return `${dayIndex}|${exerciseIndex}|${setNumber}`}
+function currentWorkoutDate(){return el('workoutDate')?.value||todayISO()}
+function historyFor(dayIndex,exerciseIndex,exerciseName,excludeCurrent=true){
+  const current=currentWorkoutDate();
+  return workoutHistory.filter(x=>Number(x.day_index)===Number(dayIndex)&&Number(x.exercise_index)===Number(exerciseIndex)&&cleanText(x.exercise_name).toLowerCase()===cleanText(exerciseName).toLowerCase()&&(!excludeCurrent||String(x.workout_date)!==current)).sort((a,b)=>String(b.workout_date).localeCompare(String(a.workout_date))||Number(a.set_number)-Number(b.set_number));
+}
+function lastWorkoutSets(dayIndex,exerciseIndex,exerciseName){
+  const rows=historyFor(dayIndex,exerciseIndex,exerciseName,true);if(!rows.length)return [];
+  const d=rows[0].workout_date;return rows.filter(x=>String(x.workout_date)===String(d)).sort((a,b)=>Number(a.set_number)-Number(b.set_number));
+}
 function compactSheetHTML(html){
   const src=document.createElement('div');src.innerHTML=html||'';
   const out=document.createElement('div');out.className='sheet-compact';
-  let day=null,dayIndex=0;
-  const ensureDay=(title)=>{day=document.createElement('section');day.className='sheet-day';day.innerHTML=`<div class="sheet-day-title">${esc(title||`Giorno ${++dayIndex}`)}</div><div class="exercise-list"></div>`;out.appendChild(day);return day.querySelector('.exercise-list')};
+  let day=null,dayIndex=-1,exerciseIndex=0,pendingTitle='';
+  const ensureDay=(title)=>{dayIndex++;exerciseIndex=0;day=document.createElement('section');day.className='sheet-day';day.dataset.dayIndex=dayIndex;day.innerHTML=`<div class="sheet-day-title"><span class="day-title-text">${esc(title||`Giorno ${dayIndex+1}`)}</span><span class="day-log-badge" data-day-badge="${dayIndex}">compila</span></div><div class="exercise-list"></div>`;out.appendChild(day);return day.querySelector('.exercise-list')};
   const addTable=(table,title)=>{
     const rows=[...table.querySelectorAll('tr')];if(rows.length<2)return false;
     const heads=[...rows[0].querySelectorAll('th,td')].map(x=>cleanText(x.textContent));
     if(!heads.some(x=>/esercizio/i.test(x)))return false;
-    const list=ensureDay(title||`Giorno ${++dayIndex}`);
+    const list=ensureDay(title||`Giorno ${dayIndex+2}`);
     rows.slice(1).forEach(tr=>{
-      const cells=[...tr.querySelectorAll('td,th')].map(x=>cleanText(x.textContent));
-      if(!cells.some(Boolean))return;
+      const cells=[...tr.querySelectorAll('td,th')].map(x=>cleanText(x.textContent));if(!cells.some(Boolean))return;
       const obj={};heads.forEach((h,i)=>{if(h)obj[h]=cells[i]||''});
       const exKey=heads.find(h=>/esercizio/i.test(h))||heads[0],name=obj[exKey]||cells[0]||'Esercizio';
-      const serie=obj[heads.find(h=>/^serie/i.test(h))||'']||'', reps=obj[heads.find(h=>/rip/i.test(h))||'']||'', rec=obj[heads.find(h=>/recupero/i.test(h))||'']||'';
-      const card=document.createElement('div');card.className='exercise-card';
-      const badge=(serie||reps)?`${serie||'—'}×${reps||'—'}`:'Dettagli';
+      const serie=obj[heads.find(h=>/^serie/i.test(h))||'']||'',reps=obj[heads.find(h=>/rip/i.test(h))||'']||'',rec=obj[heads.find(h=>/recupero/i.test(h))||'']||'';
+      const loadRx=obj[heads.find(h=>/carico/i.test(h))||'']||'',rirRx=obj[heads.find(h=>/rir|rpe/i.test(h))||'']||'',noteRx=obj[heads.find(h=>/note/i.test(h))||'']||'';
+      const di=dayIndex,ei=exerciseIndex++,sets=intSeries(serie);
       const extra=heads.map((h,i)=>({h,v:cells[i]||''})).filter(x=>x.h&&x.h!==exKey&&x.v);
-      card.innerHTML=`<details><summary><div class="exercise-main"><div class="exercise-name">${esc(name)}</div><div class="exercise-line">${rec?`Recupero ${esc(rec)}`:'Tocca per i dettagli'}</div></div><div class="exercise-badge">${esc(badge)}</div></summary><div class="exercise-details">${extra.map(x=>`<div class="exercise-detail"><span>${esc(x.h)}</span><strong>${esc(x.v)}</strong></div>`).join('')}</div></details>`;
+      const card=document.createElement('div');card.className='exercise-card';card.dataset.dayIndex=di;card.dataset.exerciseIndex=ei;card.dataset.exerciseName=name;card.dataset.sets=sets;
+      const setRows=Array.from({length:sets},(_,si)=>`<div class="set-row"><div class="set-no">S${si+1}</div><input class="set-input log-load" inputmode="decimal" placeholder="kg" data-set="${si+1}" onchange="queueWorkoutSave()" oninput="queueWorkoutSave()"><input class="set-input log-reps" inputmode="numeric" placeholder="reps" data-set="${si+1}" onchange="queueWorkoutSave()" oninput="queueWorkoutSave()"><input class="set-input log-rir" inputmode="decimal" placeholder="RIR" data-set="${si+1}" onchange="queueWorkoutSave()" oninput="queueWorkoutSave()"></div>`).join('');
+      const rx=[serie?`${serie} serie`:'',reps?`${reps} reps`:'',rec?`rec ${rec}`:''].filter(Boolean).map(x=>`<span class="rx-pill">${esc(x)}</span>`).join('');
+      card.innerHTML=`<details><summary><div class="exercise-main"><div class="exercise-name">${esc(name)}</div><div class="exercise-prescription">${rx}</div></div><div class="exercise-badge">${esc((serie||reps)?`${serie||'—'}×${reps||'—'}`:'Apri')}</div></summary><div class="exercise-details">${extra.map(x=>`<div class="exercise-detail"><span>${esc(x.h)}</span><strong>${esc(x.v)}</strong></div>`).join('')}</div><div class="workout-editor"><div class="workout-editor-title"><strong>Risultato di oggi</strong><button type="button" class="copy-last hidden" onclick="copyLastPerformance(${di},${ei})">Copia ultimo</button></div><div class="last-performance" data-last="${di}|${ei}"></div><div class="set-head"><div></div><div>Carico</div><div>Reps fatte</div><div>RIR</div></div><div class="set-grid">${setRows}</div><textarea class="exercise-note" placeholder="Nota esercizio (facoltativa)" oninput="queueWorkoutSave()"></textarea></div></details>`;
       list.appendChild(card);
-    });
-    return true;
+    });return true;
   };
-  let pendingTitle='';
   [...src.children].forEach(node=>{
     if(/^H[1-6]$/.test(node.tagName)){pendingTitle=cleanText(node.textContent);return}
+    if(node.matches?.('section.v31-print-day')){const h=node.querySelector('h1,h2,h3,h4,h5,h6');const t=node.querySelector('table');if(t)addTable(t,cleanText(h?.textContent)||pendingTitle);pendingTitle='';return}
     if(node.tagName==='TABLE'){addTable(node,pendingTitle);pendingTitle='';return}
-    node.querySelectorAll?.('table').forEach((t,i)=>addTable(t,pendingTitle||(i?`Giorno ${dayIndex+1}`:'')));
-    pendingTitle='';
+    const tables=[...node.querySelectorAll?.('table')||[]];tables.forEach((t,i)=>{const h=t.closest('section')?.querySelector('h1,h2,h3,h4,h5,h6');addTable(t,cleanText(h?.textContent)||pendingTitle||(i?`Giorno ${dayIndex+2}`:''))});pendingTitle='';
   });
   if(!out.querySelector('.exercise-card')){out.classList.add('sheet-fallback');out.innerHTML=html||'<p>Scheda disponibile.</p>'}
   return out.innerHTML;
+}
+async function loadWorkoutHistory(){
+  if(!currentSheet?.id)return;try{workoutHistory=await rpc('client_workout_log_get',{p_session:session,p_sheet_id:currentSheet.id,p_days:180})||[]}catch(e){workoutHistory=[];el('workoutStatus').textContent='Diario non disponibile: '+e.message}
+}
+function applyWorkoutDate(){
+  const date=currentWorkoutDate(),todayRows=workoutHistory.filter(x=>String(x.workout_date)===date);
+  el('sheetBody').querySelectorAll('.exercise-card').forEach(card=>{
+    const di=Number(card.dataset.dayIndex),ei=Number(card.dataset.exerciseIndex),name=card.dataset.exerciseName||'';
+    const rows=todayRows.filter(x=>Number(x.day_index)===di&&Number(x.exercise_index)===ei).sort((a,b)=>Number(a.set_number)-Number(b.set_number));
+    card.classList.toggle('has-log',rows.some(r=>r.load_value||r.reps_done||r.rir_value||r.note));
+    card.querySelectorAll('.set-row').forEach(row=>{const n=Number(row.querySelector('.log-load')?.dataset.set||0),r=rows.find(x=>Number(x.set_number)===n);row.querySelector('.log-load').value=r?.load_value||'';row.querySelector('.log-reps').value=r?.reps_done||'';row.querySelector('.log-rir').value=r?.rir_value||''});
+    card.querySelector('.exercise-note').value=rows.find(r=>r.note)?.note||'';
+    const prev=lastWorkoutSets(di,ei,name),last=card.querySelector(`[data-last="${di}|${ei}"]`),copy=card.querySelector('.copy-last');
+    if(prev.length){const d=fmtDate(prev[0].workout_date),txt=prev.map(r=>`${r.load_value||'—'} kg × ${r.reps_done||'—'}`).join(' · ');last.textContent=`Ultimo (${d}): ${txt}`;copy.classList.remove('hidden')}else{last.textContent='Nessun allenamento precedente registrato.';copy.classList.add('hidden')}
+  });
+  el('sheetBody').querySelectorAll('.sheet-day').forEach(day=>{const di=Number(day.dataset.dayIndex),has=todayRows.some(x=>Number(x.day_index)===di&&(x.load_value||x.reps_done||x.rir_value||x.note));const b=day.querySelector(`[data-day-badge="${di}"]`);if(b)b.textContent=has?'✓ salvato':'compila'});
+  el('workoutStatus').textContent=todayRows.length?`Dati caricati per ${fmtDate(date)}.`:'Compila i valori: il salvataggio è automatico.';
+}
+async function changeWorkoutDate(){applyWorkoutDate()}
+function collectWorkoutEntries(){
+  const entries=[];el('sheetBody').querySelectorAll('.exercise-card').forEach(card=>{const di=Number(card.dataset.dayIndex),ei=Number(card.dataset.exerciseIndex),name=card.dataset.exerciseName||'',note=cleanText(card.querySelector('.exercise-note')?.value||'');card.querySelectorAll('.set-row').forEach((row,idx)=>{const load=cleanText(row.querySelector('.log-load')?.value||''),reps=cleanText(row.querySelector('.log-reps')?.value||''),rir=cleanText(row.querySelector('.log-rir')?.value||'');if(load||reps||rir||note)entries.push({day_index:di,exercise_index:ei,exercise_name:name,set_number:idx+1,load_value:load,reps_done:reps,rir_value:rir,note:idx===0?note:''})})});return entries;
+}
+async function saveWorkoutLog(manual=false){
+  if(!currentSheet?.id)return;if(workoutSaveTimer){clearTimeout(workoutSaveTimer);workoutSaveTimer=null}
+  const status=el('workoutStatus'),entries=collectWorkoutEntries(),date=currentWorkoutDate();status.textContent='Salvataggio…';
+  try{await rpc('client_workout_log_save',{p_session:session,p_sheet_id:currentSheet.id,p_workout_date:date,p_entries:entries});await loadWorkoutHistory();applyWorkoutDate();status.textContent=`✓ Allenamento salvato nel cloud · ${new Date().toLocaleTimeString('it-IT',{hour:'2-digit',minute:'2-digit'})}`;if(manual&&navigator.vibrate)navigator.vibrate(35)}catch(e){status.textContent='Errore salvataggio: '+e.message}
+}
+function queueWorkoutSave(){el('workoutStatus').textContent='Modifiche da salvare…';if(workoutSaveTimer)clearTimeout(workoutSaveTimer);workoutSaveTimer=setTimeout(()=>saveWorkoutLog(false),1100)}
+function copyLastPerformance(di,ei){
+  const card=[...el('sheetBody').querySelectorAll('.exercise-card')].find(x=>Number(x.dataset.dayIndex)===Number(di)&&Number(x.dataset.exerciseIndex)===Number(ei));if(!card)return;const prev=lastWorkoutSets(di,ei,card.dataset.exerciseName||'');if(!prev.length)return;
+  card.querySelectorAll('.set-row').forEach((row,idx)=>{const r=prev[idx];if(!r)return;row.querySelector('.log-load').value=r.load_value||'';row.querySelector('.log-reps').value=r.reps_done||'';row.querySelector('.log-rir').value=r.rir_value||''});queueWorkoutSave();
 }
 function sheetTextLines(){
   const lines=[];const title=currentSheet?.title||currentSheet?.name||'Scheda allenamento';lines.push('COLASANTO PERSONAL STUDIO',title,'');
@@ -292,7 +345,7 @@ async function downloadSheetPdf(){
   }catch(e){el('sheetMsg').innerHTML=`<div class="notice bad">Impossibile salvare il PDF: ${esc(e.message)}</div>`}
 }
 function printSheet(){const ds=[...el('sheetBody').querySelectorAll('details')],was=ds.map(d=>d.open);ds.forEach(d=>d.open=true);window.print();setTimeout(()=>ds.forEach((d,i)=>d.open=was[i]),400)}
-async function loadSheet(){if(!session)return;const msg=el('sheetMsg'),body=el('sheetBody');try{const s=await rpc('client_latest_sheet',{p_session:session});currentSheet=s||null;if(!s){msg.innerHTML='<div class="notice">Nessuna scheda caricata al momento.</div>';body.innerHTML='';hideEl('sheetToolbar');hideEl('downloadNote');return}msg.innerHTML=`<div class="notice ok"><b>${esc(s.title||s.name||'Scheda allenamento')}</b><br>Scheda v${esc(s.version)} · aggiornata ${new Date(s.uploaded_at).toLocaleDateString('it-IT')}${s.is_new?' · <b>NUOVA</b>':''}</div>`;body.innerHTML=compactSheetHTML(s.html_content||'<p>Scheda disponibile come file.</p>');showEl('sheetToolbar');showEl('downloadNote');if(s.file_base64){const a=document.createElement('button');a.type='button';a.className='btn soft no-print';a.style.display='block';a.style.textAlign='center';a.textContent='⬇️ Salva file originale';a.onclick=async()=>{try{if(window.Capacitor?.isNativePlatform?.()&&nativePlugin('Filesystem')){await saveNativeBase64(s.file_base64,s.file_name||'scheda','application/octet-stream')}else{const x=document.createElement('a');x.href='data:application/octet-stream;base64,'+s.file_base64;x.download=s.file_name||'scheda';document.body.appendChild(x);x.click();x.remove()}}catch(e){msg.innerHTML=`<div class=\"notice bad\">Impossibile salvare il file: ${esc(e.message)}</div>`}};body.appendChild(a)}}catch(e){currentSheet=null;msg.innerHTML=`<div class="notice bad">${esc(e.message)}</div>`;hideEl('sheetToolbar');hideEl('downloadNote')}}
+async function loadSheet(){if(!session)return;const msg=el('sheetMsg'),body=el('sheetBody');try{const s=await rpc('client_latest_sheet',{p_session:session});currentSheet=s||null;if(!s){msg.innerHTML='<div class="notice">Nessuna scheda caricata al momento.</div>';body.innerHTML='';hideEl('sheetToolbar');hideEl('downloadNote');hideEl('workoutPanel');return}msg.innerHTML=`<div class="notice ok"><b>${esc(s.title||s.name||'Scheda allenamento')}</b><br>Scheda v${esc(s.version)} · aggiornata ${new Date(s.uploaded_at).toLocaleDateString('it-IT')}${s.is_new?' · <b>NUOVA</b>':''}</div>`;body.innerHTML=compactSheetHTML(s.html_content||'<p>Scheda disponibile come file.</p>');el('workoutDate').value=el('workoutDate').value||todayISO();showEl('workoutPanel');showEl('sheetToolbar');showEl('downloadNote');await loadWorkoutHistory();applyWorkoutDate();if(s.file_base64){const a=document.createElement('button');a.type='button';a.className='btn soft no-print';a.style.display='block';a.style.textAlign='center';a.textContent='⬇️ Salva file originale';a.onclick=async()=>{try{if(window.Capacitor?.isNativePlatform?.()&&nativePlugin('Filesystem')){await saveNativeBase64(s.file_base64,s.file_name||'scheda','application/octet-stream')}else{const x=document.createElement('a');x.href='data:application/octet-stream;base64,'+s.file_base64;x.download=s.file_name||'scheda';document.body.appendChild(x);x.click();x.remove()}}catch(e){msg.innerHTML=`<div class="notice bad">Impossibile salvare il file: ${esc(e.message)}</div>`}};body.appendChild(a)}}catch(e){currentSheet=null;msg.innerHTML=`<div class="notice bad">${esc(e.message)}</div>`;hideEl('sheetToolbar');hideEl('downloadNote');hideEl('workoutPanel')}}
 async function markInstalled(){if(session)try{await rpc('client_mark_installed',{p_session:session})}catch{}}
 // Native bundle: nessun prompt PWA e nessun service worker.
 boot();
