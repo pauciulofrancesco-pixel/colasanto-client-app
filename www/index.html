@@ -1,0 +1,116 @@
+<!doctype html>
+<html lang="it">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="theme-color" content="#111315">
+<meta name="referrer" content="no-referrer">
+<meta name="app-version" content="native-v2-android-ios">
+<link rel="apple-touch-icon" href="icon-192.jpg">
+<title>COLASANTO Personal Studio</title>
+<style>
+:root{--bg:#f3f5f7;--card:#fff;--text:#16191d;--muted:#6b7280;--dark:#17191c;--dark2:#22252a;--line:#e4e7eb;--red:#df3447;--blue:#2477ef;--purple:#7a39eb;--green:#16a66a;--amber:#d88a00;--shadow:0 10px 30px rgba(22,25,29,.09);--r:20px}
+*{box-sizing:border-box;-webkit-tap-highlight-color:transparent}
+html{background:var(--bg)}body{margin:0;padding-top:env(safe-area-inset-top);font-family:Arial,Helvetica,sans-serif;background:var(--bg);color:var(--text);padding-bottom:92px}button,input{font:inherit}button{cursor:pointer}
+.brand{background:linear-gradient(180deg,#17191c,#202226);padding:14px 16px 16px;text-align:center}.brand img{display:block;width:min(370px,82vw);height:auto;margin:auto;border-radius:14px}
+.wrap{max-width:900px;margin:auto;padding:12px}.card{background:var(--card);border:1px solid rgba(22,25,29,.05);border-radius:var(--r);padding:17px;margin-bottom:12px;box-shadow:var(--shadow)}.hidden{display:none!important}
+.login-card{margin-top:18px}.eyebrow{font-size:12px;text-transform:uppercase;letter-spacing:.09em;color:var(--muted);font-weight:800}.login-card h1{font-size:25px;margin:5px 0 6px}.login-card p{color:var(--muted);line-height:1.45;margin-top:0}
+.field{width:100%;padding:15px 14px;border:1px solid #d9dde2;border-radius:14px;background:#fff;color:var(--text);font-size:16px;outline:none;margin:6px 0}.field:focus{border-color:#8e959e;box-shadow:0 0 0 3px rgba(23,25,28,.07)}
+.btn{width:100%;border:0;border-radius:14px;padding:14px 15px;margin:6px 0;background:var(--dark);color:#fff;font-weight:800;min-height:48px}.btn:active{transform:translateY(1px)}.green{background:var(--green)}.blue{background:var(--blue)}.purple{background:var(--purple)}.red{background:var(--red)}.soft{background:#eef1f4;color:#1d2228}.install{background:#242930}
+.welcome{position:relative;overflow:hidden;background:linear-gradient(135deg,#15171a 0%,#282b31 100%);color:#fff;padding:20px}.welcome:after{content:"";position:absolute;width:160px;height:160px;border:1px solid rgba(255,255,255,.08);border-radius:50%;right:-55px;top:-85px}.welcome h2{font-size:24px;line-height:1.13;margin:5px 0 6px;max-width:720px}.welcome p{margin:0;color:#d7dbe0;font-size:14px}.quick{display:grid;grid-template-columns:1fr 1fr;gap:9px;margin-top:15px}.quick-box{background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.08);border-radius:14px;padding:11px}.quick-box span{display:block;font-size:11px;color:#cbd0d6;text-transform:uppercase;font-weight:800;letter-spacing:.04em}.quick-box strong{display:block;font-size:20px;margin-top:3px}
+.section-title{display:flex;align-items:center;justify-content:space-between;gap:10px;margin-bottom:11px}.section-title h3{font-size:19px;margin:0}.hint{font-size:13px;color:var(--muted);line-height:1.4}.notice{border-radius:14px;padding:12px 13px;margin:9px 0;background:#edf6ff;border:1px solid #dbeeff;color:#263440;font-size:13px;line-height:1.4}.notice.warn{background:#fff7e7;border-color:#ffe1a6}.notice.ok{background:#eaf9f1;border-color:#c9efd9}.notice.bad{background:#fff0f1;border-color:#ffd0d5}
+.week-nav{display:grid;grid-template-columns:58px 1fr 58px;gap:8px;margin:10px 0}.week-nav .btn{margin:0;padding:10px}.week-title{text-align:center;font-size:13px;color:var(--muted);margin:9px 0 14px}.day{font-size:15px;font-weight:900;margin:18px 2px 8px;text-transform:capitalize}.slot{border:1px solid var(--line);border-radius:16px;padding:13px;margin:8px 0;background:#fff}.slot.mine{border-color:#64ca98;box-shadow:0 0 0 2px rgba(22,166,106,.1)}.slot-head{display:flex;justify-content:space-between;align-items:center;gap:12px}.slot-head strong{font-size:15px}.capacity{font-size:12px;font-weight:800;background:#f0f2f4;padding:5px 8px;border-radius:999px}.who{font-size:12px;color:var(--muted);margin:6px 0 9px}.choices{display:grid;grid-template-columns:repeat(3,1fr);gap:6px}.choices .btn{font-size:12px;padding:9px 4px;min-height:41px;margin:0}.mine-label{color:var(--green);font-weight:800}
+.cert-status{border:1px solid var(--line);border-radius:17px;padding:14px;margin-bottom:14px}.cert-status.pending{background:#fff8ea;border-color:#f3d89d}.cert-status.approved{background:#ecfaf3;border-color:#bfe9d1}.cert-status.rejected{background:#fff0f1;border-color:#f4c0c6}.cert-status.none{background:#f6f7f8}.status-line{display:flex;align-items:center;gap:9px;font-weight:900}.status-dot{width:10px;height:10px;border-radius:50%;background:#939ba4}.pending .status-dot{background:var(--amber)}.approved .status-dot{background:var(--green)}.rejected .status-dot{background:var(--red)}.cert-meta{font-size:13px;color:#515962;line-height:1.45;margin-top:8px}.upload-box{background:#f8f9fa;border-radius:16px;padding:13px}.upload-box label{display:block;font-size:12px;color:var(--muted);font-weight:800;margin:5px 2px 2px}.file-name{font-size:12px;color:var(--muted);margin:4px 2px 8px}
+.sheet{overflow:auto;max-width:100%}.sheet table{border-collapse:collapse;width:100%;min-width:600px}.sheet td,.sheet th{border:1px solid #ccd1d6;padding:7px;font-size:13px}
+.nav{position:fixed;z-index:20;left:0;right:0;bottom:0;padding:8px max(10px,env(safe-area-inset-right)) calc(8px + env(safe-area-inset-bottom)) max(10px,env(safe-area-inset-left));background:rgba(247,248,249,.94);backdrop-filter:blur(16px);border-top:1px solid #dfe3e7}.nav-inner{max-width:650px;margin:auto;display:grid;grid-template-columns:repeat(3,1fr);gap:7px}.nav button{border:0;background:transparent;color:#5b626b;border-radius:13px;padding:8px 4px;font-size:11px;font-weight:800;min-height:54px}.nav button span{display:block;font-size:20px;margin-bottom:2px}.nav button.active{background:#1c1f23;color:#fff}
+@media(min-width:760px){body{padding-bottom:20px}.wrap{padding:18px}.nav{position:static;background:transparent;border:0;backdrop-filter:none;padding:0 18px 4px}.nav-inner{max-width:900px}.nav button{background:#fff;border:1px solid var(--line);font-size:13px}.nav button span{display:inline;font-size:15px;margin-right:5px}.nav button.active{background:var(--dark)}.quick{grid-template-columns:repeat(3,1fr)}}
+@media(max-width:420px){.wrap{padding:9px}.card{border-radius:17px;padding:14px}.brand{padding:10px}.welcome h2{font-size:21px}.choices{grid-template-columns:1fr}.choices .btn{font-size:13px}.quick{gap:6px}.quick-box{padding:9px}}
+@media print{.brand,.nav,.no-print{display:none!important}body{padding:0;background:#fff}.card{box-shadow:none;border:0}.wrap{max-width:none}}
+</style>
+</head>
+<body>
+<header class="brand"><img src="logo-header.jpg" alt="COLASANTO Personal Studio"></header>
+<div class="wrap">
+  <div id="loginCard" class="card login-card">
+    <div class="eyebrow">Area riservata</div><h1>Accedi alla tua app</h1><p>Usa il numero di telefono registrato in palestra e il tuo PIN personale.</p>
+    <input id="phone" class="field" type="tel" autocomplete="tel" placeholder="Numero di telefono">
+    <input id="pin" class="field" inputmode="numeric" autocomplete="one-time-code" placeholder="PIN">
+    <button class="btn" onclick="clientLogin()">Accedi</button><div id="loginMsg"></div>
+  </div>
+
+  <div id="app" class="hidden">
+    <section class="card welcome">
+      <div class="eyebrow" style="color:#aeb5bd">La tua area personale</div>
+      <h2 id="hello">Ciao</h2><p id="sub">Benvenuto in COLASANTO Personal Studio.</p>
+      <div class="quick">
+        <div class="quick-box"><span>Sedute residue</span><strong id="homeSessions">—</strong></div>
+        <div class="quick-box"><span>Certificato</span><strong id="homeCert">—</strong></div>
+        <div class="quick-box" style="grid-column:1/-1"><span>Profilo</span><strong id="homeType" style="font-size:15px">Cliente COLASANTO</strong></div>
+      </div>
+    </section>
+
+    <section id="agenda" class="card">
+      <div class="section-title"><h3>📅 Prenotazioni</h3><span id="sessionsMini" class="capacity">— sedute</span></div>
+      <div class="notice"><b>Disdette:</b> fino a 24 ore prima non perdi la seduta. Nelle 24 ore precedenti l'appuntamento la seduta resta scalata.</div>
+      <div class="week-nav"><button class="btn soft" onclick="week(-1)">◀</button><button class="btn" onclick="week(0)">Oggi</button><button class="btn soft" onclick="week(1)">▶</button></div>
+      <div id="weekTitle" class="week-title"></div><div id="agendaBody"></div>
+    </section>
+
+    <section id="docs" class="card hidden">
+      <div class="section-title"><h3>🩺 Certificato medico</h3></div>
+      <div id="certStatus" class="cert-status none"><div class="status-line"><span class="status-dot"></span><span>Nessun certificato inviato</span></div><div class="cert-meta">Quando invii il certificato, qui vedrai se è in attesa, approvato oppure da reinviare.</div></div>
+      <div class="upload-box">
+        <strong>Invia un certificato</strong><div class="hint" style="margin:4px 0 9px">PDF, JPG o PNG · massimo 5 MB.</div>
+        <label>Data di scadenza</label><input id="certDate" class="field" type="date">
+        <label>File</label><input id="certFile" class="field" type="file" accept="application/pdf,image/jpeg,image/png">
+        <div id="certFileName" class="file-name">Nessun file selezionato</div>
+        <button id="certSendBtn" class="btn green" onclick="uploadCert()">Invia certificato alla palestra</button><div id="certMsg"></div>
+      </div>
+    </section>
+
+    <section id="sheet" class="card hidden">
+      <div class="section-title"><h3>📋 La mia scheda</h3></div>
+      <button class="btn soft no-print" onclick="loadSheet()">Aggiorna scheda</button><div id="sheetMsg"></div><div id="sheetBody" class="sheet"></div><button id="printBtn" class="btn hidden no-print" onclick="window.print()">🖨️ Stampa / Salva PDF</button>
+    </section>
+  </div>
+</div>
+
+<nav id="nav" class="nav hidden no-print"><div class="nav-inner">
+<button id="navAgenda" class="active" onclick="tab('agenda')"><span>📅</span>Prenota</button>
+<button id="navDocs" onclick="tab('docs')"><span>🩺</span>Certificato</button>
+<button id="navSheet" onclick="tab('sheet')"><span>📋</span>Scheda</button>
+</div></nav>
+
+<script>
+const PROJECT='https://owczbpqzduwkbmcfxttv.supabase.co',KEY='sb_publishable_stqBBt3ComRqwp1qNEqMvw_QorqqRMz',REST=PROJECT+'/rest/v1/rpc/';
+const invite=new URLSearchParams(location.search).get('i')||localStorage.getItem('colasanto_invite')||'';if(invite)localStorage.setItem('colasanto_invite',invite);
+let session=localStorage.getItem('colasanto_session')||'',client=null,offset=0,deferredPrompt=null;
+function el(id){return document.getElementById(id)}
+function hideEl(x){x=typeof x==='string'?el(x):x;if(x)x.classList.add('hidden')}
+function showEl(x){x=typeof x==='string'?el(x):x;if(x)x.classList.remove('hidden')}
+function esc(s){return String(s??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]))}
+async function rpc(name,args){const r=await fetch(REST+name,{method:'POST',headers:{'Content-Type':'application/json','apikey':KEY},body:JSON.stringify(args)});const t=await r.text();let d;try{d=JSON.parse(t)}catch{d=t}if(!r.ok)throw new Error(d.message||d.error||'Errore');return d}
+function addDays(d,n){const x=new Date(d);x.setDate(x.getDate()+n);return x}
+function monday(d){const x=new Date(d),n=x.getDay();x.setDate(x.getDate()-(n===0?6:n-1));x.setHours(0,0,0,0);return x}
+function dateISO(d){const y=d.getFullYear(),m=String(d.getMonth()+1).padStart(2,'0'),day=String(d.getDate()).padStart(2,'0');return `${y}-${m}-${day}`}
+function fmtDate(v){if(!v)return '—';const d=new Date(String(v).slice(0,10)+'T12:00:00');return d.toLocaleDateString('it-IT')}
+function fmtDateTime(v){return v?new Date(v).toLocaleString('it-IT',{dateStyle:'short',timeStyle:'short'}):'—'}
+async function loadProfile(){if(!session)return null;client=await rpc('client_profile',{p_session:session});localStorage.setItem('colasanto_client_cache',JSON.stringify(client));renderProfile();return client}
+function renderProfile(){if(!client)return;const name=client.name||'';el('hello').textContent=`Ciao ${name}, benvenuto in COLASANTO Personal Studio.`;el('sub').textContent='Prenota, controlla le tue sedute e gestisci i documenti direttamente dal telefono.';const rem=client.sessions_remaining??'—';el('homeSessions').textContent=rem;el('sessionsMini').textContent=`${rem} sedute`;el('homeType').textContent=client.client_type==='online'?'Personal Online':'Cliente in sede';renderCertificateStatus(client.certificate)}
+function renderCertificateStatus(cert){const box=el('certStatus'),home=el('homeCert');if(!box)return;let cls='none',title='Nessun certificato inviato',meta='Quando invii il certificato, qui vedrai se è in attesa, approvato oppure da reinviare.';if(cert){const status=cert.status||'pending';if(status==='pending'){cls='pending';title='In attesa di verifica';meta=`${esc(cert.file_name||'Certificato')} · scadenza ${fmtDate(cert.expires_on)} · inviato ${fmtDateTime(cert.uploaded_at)}. La palestra deve ancora visionarlo.`}else if(status==='approved'){cls='approved';title='Certificato approvato';meta=`${esc(cert.file_name||'Certificato')} · scadenza ${fmtDate(cert.expires_on)}${cert.decided_at?` · approvato ${fmtDateTime(cert.decided_at)}`:''}.`}else{cls='rejected';title='Certificato da reinviare';meta=`${esc(cert.file_name||'Certificato')} non è stato approvato.${cert.review_note?` Motivo: ${esc(cert.review_note)}.`:''} Scegli il file corretto e invialo nuovamente.`}}box.className=`cert-status ${cls}`;box.innerHTML=`<div class="status-line"><span class="status-dot"></span><span>${title}</span></div><div class="cert-meta">${meta}</div>`;home.textContent=cert?(cert.status==='approved'?'OK':cert.status==='rejected'?'Reinvia':'In verifica'):'Mancante'}
+async function boot(){if(invite)try{await rpc('client_invite_open',{p_invite_token:invite})}catch{}if(session){try{const cached=localStorage.getItem('colasanto_client_cache');if(cached)try{client=JSON.parse(cached)}catch{}await loadProfile();showApp();renderWeek();loadSheet()}catch{session='';client=null;localStorage.removeItem('colasanto_session');localStorage.removeItem('colasanto_client_cache')}}if((matchMedia('(display-mode: standalone)').matches||navigator.standalone)&&session)markInstalled()}
+async function clientLogin(){try{const d=await rpc('client_login',{p_invite_token:invite,p_phone:el('phone').value.trim(),p_pin:el('pin').value.trim()});session=d.session_token;client=d.client;localStorage.setItem('colasanto_session',session);await loadProfile();showApp();renderWeek();loadSheet()}catch(e){el('loginMsg').innerHTML=`<div class="notice bad">${esc(e.message)}</div>`}}
+function showApp(){hideEl('loginCard');showEl('app');showEl('nav');renderProfile()}
+function tab(id){['agenda','docs','sheet'].forEach(x=>x===id?showEl(x):hideEl(x));['Agenda','Docs','Sheet'].forEach(k=>el('nav'+k)?.classList.toggle('active',k.toLowerCase()===id));if(id==='docs')loadProfile().catch(()=>{});if(id==='sheet')loadSheet();window.scrollTo({top:0,behavior:'smooth'})}
+function week(n){offset=n===0?0:offset+n;renderWeek()}
+const slots=['07:00-08:30','08:30-10:00','10:00-11:30','11:30-13:00','13:00-14:30','14:30-16:00','16:00-17:30','17:30-19:00','19:00-20:30','20:30-22:00'];
+async function renderWeek(){const m=addDays(monday(new Date()),offset*7),to=addDays(m,5);el('weekTitle').textContent='Settimana '+m.toLocaleDateString('it-IT')+' – '+to.toLocaleDateString('it-IT');let rows=[];try{rows=await rpc('client_agenda',{p_session:session,p_from:dateISO(m),p_to:dateISO(to)})}catch(e){el('agendaBody').innerHTML=`<div class="notice bad">${esc(e.message)}</div>`;return}const body=el('agendaBody');body.innerHTML='';for(let di=0;di<6;di++){const d=addDays(m,di),ds=dateISO(d),h=document.createElement('div');h.className='day';h.textContent=d.toLocaleDateString('it-IT',{weekday:'long',day:'2-digit',month:'2-digit'});body.appendChild(h);for(const sl of slots){const list=rows.filter(x=>x.booking_date===ds&&x.slot_time===sl),box=document.createElement('div');box.className='slot'+(list.some(x=>x.mine)?' mine':'');const mine=list.find(x=>x.mine);box.innerHTML=`<div class="slot-head"><strong>${sl}</strong><span class="capacity">${list.length}/4</span></div><div class="who ${mine?'mine-label':''}">${mine?'✓ La tua prenotazione':(list.length?`Posti occupati: ${list.length}`:'Disponibile')}</div>`;if(mine){const b=document.createElement('button');b.className='btn red';b.textContent='Annulla la mia prenotazione';b.onclick=async()=>{if(confirm('Annullare la prenotazione? Se mancano meno di 24 ore, la seduta resterà scalata.')){try{await rpc('client_cancel_booking',{p_session:session,p_booking_id:mine.id});await loadProfile();renderWeek()}catch(e){alert(e.message)}}};box.appendChild(b)}else if(list.length<4){const ch=document.createElement('div');ch.className='choices';[['Sala','sala','purple'],['PT Giuseppe','giuseppe','red'],['PT Amedeo','amedeo','blue']].forEach(([lab,act,cl])=>{const b=document.createElement('button');b.className='btn '+cl;b.textContent=lab;b.onclick=async()=>{try{await rpc('client_book',{p_session:session,p_date:ds,p_slot:sl,p_activity:act});await loadProfile();renderWeek()}catch(e){alert(e.message)}};ch.appendChild(b)});box.appendChild(ch)}body.appendChild(box)}}}
+async function fileB64(f){return new Promise((ok,no)=>{const r=new FileReader();r.onload=()=>ok(String(r.result).split(',')[1]);r.onerror=no;r.readAsDataURL(f)})}
+el('certFile').addEventListener('change',()=>{el('certFileName').textContent=el('certFile').files?.[0]?.name||'Nessun file selezionato'});
+async function uploadCert(){const f=el('certFile').files?.[0],date=el('certDate').value,msg=el('certMsg'),btn=el('certSendBtn');if(!date){msg.innerHTML='<div class="notice bad">Inserisci la data di scadenza.</div>';return}if(!f){msg.innerHTML='<div class="notice bad">Seleziona il certificato da inviare.</div>';return}if(f.size>5*1024*1024){msg.innerHTML='<div class="notice bad">File troppo grande: massimo 5 MB.</div>';return}if(f.type&&!['application/pdf','image/jpeg','image/png'].includes(f.type)){msg.innerHTML='<div class="notice bad">Sono accettati solo PDF, JPG o PNG.</div>';return}try{btn.disabled=true;btn.textContent='Invio in corso…';msg.innerHTML='';await rpc('client_upload_certificate',{p_session:session,p_file_name:f.name,p_mime_type:f.type,p_expires_on:date,p_base64:await fileB64(f)});el('certFile').value='';el('certFileName').textContent='Nessun file selezionato';await loadProfile();msg.innerHTML='<div class="notice ok"><b>Certificato inviato.</b> Ora è in attesa di verifica da parte della palestra.</div>'}catch(e){msg.innerHTML=`<div class="notice bad">${esc(e.message)}</div>`}finally{btn.disabled=false;btn.textContent='Invia certificato alla palestra'}}
+async function loadSheet(){if(!session)return;const msg=el('sheetMsg'),body=el('sheetBody');try{const s=await rpc('client_latest_sheet',{p_session:session});if(!s){msg.innerHTML='<div class="notice">Nessuna scheda caricata al momento.</div>';body.innerHTML='';hideEl('printBtn');return}msg.innerHTML=`<div class="notice ok">Scheda v${esc(s.version)} · aggiornata ${new Date(s.uploaded_at).toLocaleDateString('it-IT')}${s.is_new?' · <b>NUOVA</b>':''}</div>`;body.innerHTML=s.html_content||'<p>Scheda disponibile come file.</p>';if(s.file_base64){const a=document.createElement('a');a.href='data:application/octet-stream;base64,'+s.file_base64;a.download=s.file_name||'scheda';a.textContent='⬇️ Scarica file originale';a.style.display='inline-block';a.style.margin='10px 0';body.prepend(a)}showEl('printBtn')}catch(e){msg.innerHTML=`<div class="notice bad">${esc(e.message)}</div>`}}
+async function markInstalled(){if(session)try{await rpc('client_mark_installed',{p_session:session})}catch{}}
+// Native bundle: nessun prompt PWA e nessun service worker.
+boot();
+</script>
+</body></html>
