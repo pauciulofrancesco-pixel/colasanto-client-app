@@ -19,12 +19,12 @@ html{background:var(--bg)}body{margin:0;padding-top:env(safe-area-inset-top);fon
 .btn{width:100%;border:0;border-radius:14px;padding:14px 15px;margin:6px 0;background:var(--dark);color:#fff;font-weight:800;min-height:48px}.btn:active{transform:translateY(1px)}.green{background:var(--green)}.blue{background:var(--blue)}.purple{background:var(--purple)}.red{background:var(--red)}.soft{background:#eef1f4;color:#1d2228}.install{background:#242930}
 .welcome{position:relative;overflow:hidden;background:linear-gradient(135deg,#15171a 0%,#282b31 100%);color:#fff;padding:20px}.welcome:after{content:"";position:absolute;width:160px;height:160px;border:1px solid rgba(255,255,255,.08);border-radius:50%;right:-55px;top:-85px}.welcome h2{font-size:24px;line-height:1.13;margin:5px 0 6px;max-width:720px}.welcome p{margin:0;color:#d7dbe0;font-size:14px}.quick{display:grid;grid-template-columns:1fr 1fr;gap:9px;margin-top:15px}.quick-box{background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.08);border-radius:14px;padding:11px}.quick-box span{display:block;font-size:11px;color:#cbd0d6;text-transform:uppercase;font-weight:800;letter-spacing:.04em}.quick-box strong{display:block;font-size:20px;margin-top:3px}
 .section-title{display:flex;align-items:center;justify-content:space-between;gap:10px;margin-bottom:11px}.section-title h3{font-size:19px;margin:0}.hint{font-size:13px;color:var(--muted);line-height:1.4}.notice{border-radius:14px;padding:12px 13px;margin:9px 0;background:#edf6ff;border:1px solid #dbeeff;color:#263440;font-size:13px;line-height:1.4}.notice.warn{background:#fff7e7;border-color:#ffe1a6}.notice.ok{background:#eaf9f1;border-color:#c9efd9}.notice.bad{background:#fff0f1;border-color:#ffd0d5}
-.week-nav{display:grid;grid-template-columns:58px 1fr 58px;gap:8px;margin:10px 0}.week-nav .btn{margin:0;padding:10px}.week-title{text-align:center;font-size:13px;color:var(--muted);margin:9px 0 14px}.day{font-size:15px;font-weight:900;margin:18px 2px 8px;text-transform:capitalize}.slot{border:1px solid var(--line);border-radius:16px;padding:13px;margin:8px 0;background:#fff}.slot.mine{border-color:#64ca98;box-shadow:0 0 0 2px rgba(22,166,106,.1)}.slot-head{display:flex;justify-content:space-between;align-items:center;gap:12px}.slot-head strong{font-size:15px}.capacity{font-size:12px;font-weight:800;background:#f0f2f4;padding:5px 8px;border-radius:999px}.who{font-size:12px;color:var(--muted);margin:6px 0 9px}.choices{display:grid;grid-template-columns:repeat(3,1fr);gap:6px}.choices .btn{font-size:12px;padding:9px 4px;min-height:41px;margin:0}.mine-label{color:var(--green);font-weight:800}
+.week-nav{display:grid;grid-template-columns:52px 1fr 52px;gap:7px;margin:8px 0 6px}.week-nav .btn{margin:0;padding:9px;min-height:42px}.week-title{text-align:center;font-size:12px;color:var(--muted);margin:7px 0 9px}.day-tabs{display:grid;grid-template-columns:repeat(6,1fr);gap:5px;margin:7px 0 11px}.day-tab{border:1px solid var(--line);background:#f7f8f9;color:#59616b;border-radius:11px;padding:7px 2px;min-width:0;text-align:center}.day-tab b{display:block;font-size:10px;text-transform:uppercase;letter-spacing:.03em}.day-tab span{display:block;font-size:16px;font-weight:900;line-height:1.05;margin-top:2px}.day-tab.active{background:var(--dark);border-color:var(--dark);color:#fff}.day-tab.today:not(.active){border-color:#9aa1a9;color:#1c2126}.selected-day{display:flex;align-items:center;justify-content:space-between;gap:8px;margin:5px 1px 8px}.selected-day strong{font-size:15px;text-transform:capitalize}.selected-day small{color:var(--muted);font-size:11px}.slot-list{border:1px solid var(--line);border-radius:15px;overflow:hidden;background:#fff}.slot-row{display:grid;grid-template-columns:88px minmax(0,1fr) auto;align-items:center;gap:9px;padding:9px 10px;border-bottom:1px solid #edf0f2;min-height:58px}.slot-row:last-child{border-bottom:0}.slot-row.mine{background:#edfaf3}.slot-row.full{background:#fafafa}.slot-time{font-size:13px;font-weight:900;white-space:nowrap}.slot-info{min-width:0}.slot-status{font-size:12px;font-weight:800;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}.slot-meta{font-size:10px;color:var(--muted);margin-top:2px}.capacity{font-size:11px;font-weight:800;background:#eef1f3;padding:4px 7px;border-radius:999px;white-space:nowrap}.slot-action{border:0;border-radius:10px;padding:8px 10px;font-size:11px;font-weight:900;min-width:67px;min-height:36px;color:#fff;background:var(--dark)}.slot-action.cancel{background:var(--red)}.slot-action.full{background:#d4d8dc;color:#7b828a}.slot-action:disabled{opacity:1}.calendar-empty{padding:20px;text-align:center;color:var(--muted);font-size:13px}.booking-overlay{position:fixed;z-index:50;inset:0;background:rgba(0,0,0,.48);display:flex;align-items:flex-end;justify-content:center;padding:12px}.booking-sheet{width:min(560px,100%);background:#fff;border-radius:22px 22px 16px 16px;padding:18px;box-shadow:0 -12px 40px rgba(0,0,0,.22);padding-bottom:calc(18px + env(safe-area-inset-bottom))}.booking-sheet h3{margin:0 0 4px;font-size:20px}.booking-sheet p{margin:0 0 13px;color:var(--muted);font-size:13px}.booking-options{display:grid;grid-template-columns:1fr;gap:8px}.booking-options .btn{margin:0}.booking-close{margin-top:8px!important;background:#eef1f4!important;color:#1d2228!important}.mine-label{color:var(--green);font-weight:800}
 .cert-status{border:1px solid var(--line);border-radius:17px;padding:14px;margin-bottom:14px}.cert-status.pending{background:#fff8ea;border-color:#f3d89d}.cert-status.approved{background:#ecfaf3;border-color:#bfe9d1}.cert-status.rejected{background:#fff0f1;border-color:#f4c0c6}.cert-status.none{background:#f6f7f8}.status-line{display:flex;align-items:center;gap:9px;font-weight:900}.status-dot{width:10px;height:10px;border-radius:50%;background:#939ba4}.pending .status-dot{background:var(--amber)}.approved .status-dot{background:var(--green)}.rejected .status-dot{background:var(--red)}.cert-meta{font-size:13px;color:#515962;line-height:1.45;margin-top:8px}.upload-box{background:#f8f9fa;border-radius:16px;padding:13px}.upload-box label{display:block;font-size:12px;color:var(--muted);font-weight:800;margin:5px 2px 2px}.file-name{font-size:12px;color:var(--muted);margin:4px 2px 8px}
 .sheet{overflow:auto;max-width:100%}.sheet table{border-collapse:collapse;width:100%;min-width:600px}.sheet td,.sheet th{border:1px solid #ccd1d6;padding:7px;font-size:13px}
 .nav{position:fixed;z-index:20;left:0;right:0;bottom:0;padding:8px max(10px,env(safe-area-inset-right)) calc(8px + env(safe-area-inset-bottom)) max(10px,env(safe-area-inset-left));background:rgba(247,248,249,.94);backdrop-filter:blur(16px);border-top:1px solid #dfe3e7}.nav-inner{max-width:650px;margin:auto;display:grid;grid-template-columns:repeat(3,1fr);gap:7px}.nav button{border:0;background:transparent;color:#5b626b;border-radius:13px;padding:8px 4px;font-size:11px;font-weight:800;min-height:54px}.nav button span{display:block;font-size:20px;margin-bottom:2px}.nav button.active{background:#1c1f23;color:#fff}
 @media(min-width:760px){body{padding-bottom:20px}.wrap{padding:18px}.nav{position:static;background:transparent;border:0;backdrop-filter:none;padding:0 18px 4px}.nav-inner{max-width:900px}.nav button{background:#fff;border:1px solid var(--line);font-size:13px}.nav button span{display:inline;font-size:15px;margin-right:5px}.nav button.active{background:var(--dark)}.quick{grid-template-columns:repeat(3,1fr)}}
-@media(max-width:420px){.wrap{padding:9px}.card{border-radius:17px;padding:14px}.brand{padding:10px}.welcome h2{font-size:21px}.choices{grid-template-columns:1fr}.choices .btn{font-size:13px}.quick{gap:6px}.quick-box{padding:9px}}
+@media(max-width:420px){.wrap{padding:9px}.card{border-radius:17px;padding:14px}.brand{padding:10px}.welcome h2{font-size:21px}.quick{gap:6px}.quick-box{padding:9px}.slot-row{grid-template-columns:78px minmax(0,1fr) auto;gap:7px;padding:8px}.slot-action{min-width:61px;padding:8px 7px}.day-tab{padding:6px 1px}.day-tab span{font-size:15px}}
 @media print{.brand,.nav,.no-print{display:none!important}body{padding:0;background:#fff}.card{box-shadow:none;border:0}.wrap{max-width:none}}
 </style>
 </head>
@@ -32,7 +32,7 @@ html{background:var(--bg)}body{margin:0;padding-top:env(safe-area-inset-top);fon
 <header class="brand"><img src="logo-header.jpg" alt="COLASANTO Personal Studio"></header>
 <div class="wrap">
   <div id="loginCard" class="card login-card">
-    <div class="eyebrow">Area riservata · App nativa v5</div><h1>Accedi alla tua app</h1><p>Usa il numero di telefono registrato in palestra e il tuo PIN personale.</p>
+    <div class="eyebrow">Area riservata · App nativa v6</div><h1>Accedi alla tua app</h1><p>Usa il numero di telefono registrato in palestra e il tuo PIN personale.</p>
     <input id="phone" class="field" type="tel" autocomplete="tel" placeholder="Numero di telefono">
     <input id="pin" class="field" inputmode="numeric" autocomplete="one-time-code" placeholder="PIN">
     <button class="btn" onclick="clientLogin()">Accedi</button><div id="loginMsg"></div>
@@ -53,7 +53,7 @@ html{background:var(--bg)}body{margin:0;padding-top:env(safe-area-inset-top);fon
       <div class="section-title"><h3>📅 Prenotazioni</h3><span id="sessionsMini" class="capacity">— sedute</span></div>
       <div class="notice"><b>Disdette:</b> fino a 24 ore prima non perdi la seduta. Nelle 24 ore precedenti l'appuntamento la seduta resta scalata.</div>
       <div class="week-nav"><button class="btn soft" onclick="week(-1)">◀</button><button class="btn" onclick="week(0)">Oggi</button><button class="btn soft" onclick="week(1)">▶</button></div>
-      <div id="weekTitle" class="week-title"></div><div id="agendaBody"></div>
+      <div id="weekTitle" class="week-title"></div><div id="dayTabs" class="day-tabs"></div><div id="selectedDay" class="selected-day"></div><div id="agendaBody"></div>
     </section>
 
     <section id="docs" class="card hidden">
@@ -75,6 +75,19 @@ html{background:var(--bg)}body{margin:0;padding-top:env(safe-area-inset-top);fon
   </div>
 </div>
 
+<div id="bookingOverlay" class="booking-overlay hidden no-print" onclick="if(event.target===this)closeBooking()">
+  <div class="booking-sheet">
+    <h3>Scegli la prenotazione</h3>
+    <p id="bookingWhen">—</p>
+    <div class="booking-options">
+      <button class="btn purple" onclick="confirmBook('sala')">Sala</button>
+      <button class="btn red" onclick="confirmBook('giuseppe')">PT Giuseppe</button>
+      <button class="btn blue" onclick="confirmBook('amedeo')">PT Amedeo</button>
+    </div>
+    <button class="btn booking-close" onclick="closeBooking()">Chiudi</button>
+  </div>
+</div>
+
 <nav id="nav" class="nav hidden no-print"><div class="nav-inner">
 <button id="navAgenda" class="active" onclick="tab('agenda')"><span>📅</span>Prenota</button>
 <button id="navDocs" onclick="tab('docs')"><span>🩺</span>Certificato</button>
@@ -84,7 +97,7 @@ html{background:var(--bg)}body{margin:0;padding-top:env(safe-area-inset-top);fon
 <script>
 const PROJECT='https://owczbpqzduwkbmcfxttv.supabase.co',KEY='sb_publishable_stqBBt3ComRqwp1qNEqMvw_QorqqRMz',REST=PROJECT+'/rest/v1/rpc/';
 const invite=new URLSearchParams(location.search).get('i')||localStorage.getItem('colasanto_invite')||'';if(invite)localStorage.setItem('colasanto_invite',invite);
-let session=localStorage.getItem('colasanto_session')||'',client=null,offset=0,deferredPrompt=null;
+let session=localStorage.getItem('colasanto_session')||'',client=null,offset=0,deferredPrompt=null,agendaRows=[],weekDays=[],selectedDayIndex=0,bookingCtx=null;
 function el(id){return document.getElementById(id)}
 function hideEl(x){x=typeof x==='string'?el(x):x;if(x)x.classList.add('hidden')}
 function showEl(x){x=typeof x==='string'?el(x):x;if(x)x.classList.remove('hidden')}
@@ -102,9 +115,84 @@ async function boot(){if(invite)try{await rpc('client_invite_open',{p_invite_tok
 async function clientLogin(){try{const d=await rpc('client_native_login',{p_phone:el('phone').value.trim(),p_pin:el('pin').value.trim()});session=d.session_token;client=d.client;localStorage.setItem('colasanto_session',session);await loadProfile();showApp();renderWeek();loadSheet()}catch(e){el('loginMsg').innerHTML=`<div class="notice bad">${esc(e.message)}</div>`}}
 function showApp(){hideEl('loginCard');showEl('app');showEl('nav');renderProfile()}
 function tab(id){['agenda','docs','sheet'].forEach(x=>x===id?showEl(x):hideEl(x));['Agenda','Docs','Sheet'].forEach(k=>el('nav'+k)?.classList.toggle('active',k.toLowerCase()===id));if(id==='docs')loadProfile().catch(()=>{});if(id==='sheet')loadSheet();window.scrollTo({top:0,behavior:'smooth'})}
-function week(n){offset=n===0?0:offset+n;renderWeek()}
+function week(n){
+  offset=n===0?0:offset+n;
+  selectedDayIndex=defaultDayIndex(offset);
+  renderWeek();
+}
 const slots=['07:00-08:30','08:30-10:00','10:00-11:30','11:30-13:00','13:00-14:30','14:30-16:00','16:00-17:30','17:30-19:00','19:00-20:30','20:30-22:00'];
-async function renderWeek(){const m=addDays(monday(new Date()),offset*7),to=addDays(m,5);el('weekTitle').textContent='Settimana '+m.toLocaleDateString('it-IT')+' – '+to.toLocaleDateString('it-IT');let rows=[];try{rows=await rpc('client_agenda',{p_session:session,p_from:dateISO(m),p_to:dateISO(to)})}catch(e){el('agendaBody').innerHTML=`<div class="notice bad">${esc(e.message)}</div>`;return}const body=el('agendaBody');body.innerHTML='';for(let di=0;di<6;di++){const d=addDays(m,di),ds=dateISO(d),h=document.createElement('div');h.className='day';h.textContent=d.toLocaleDateString('it-IT',{weekday:'long',day:'2-digit',month:'2-digit'});body.appendChild(h);for(const sl of slots){const list=rows.filter(x=>x.booking_date===ds&&x.slot_time===sl),box=document.createElement('div');box.className='slot'+(list.some(x=>x.mine)?' mine':'');const mine=list.find(x=>x.mine);box.innerHTML=`<div class="slot-head"><strong>${sl}</strong><span class="capacity">${list.length}/4</span></div><div class="who ${mine?'mine-label':''}">${mine?'✓ La tua prenotazione':(list.length?`Posti occupati: ${list.length}`:'Disponibile')}</div>`;if(mine){const b=document.createElement('button');b.className='btn red';b.textContent='Annulla la mia prenotazione';b.onclick=async()=>{if(confirm('Annullare la prenotazione? Se mancano meno di 24 ore, la seduta resterà scalata.')){try{await rpc('client_cancel_booking',{p_session:session,p_booking_id:mine.id});await loadProfile();renderWeek()}catch(e){alert(e.message)}}};box.appendChild(b)}else if(list.length<4){const ch=document.createElement('div');ch.className='choices';[['Sala','sala','purple'],['PT Giuseppe','giuseppe','red'],['PT Amedeo','amedeo','blue']].forEach(([lab,act,cl])=>{const b=document.createElement('button');b.className='btn '+cl;b.textContent=lab;b.onclick=async()=>{try{await rpc('client_book',{p_session:session,p_date:ds,p_slot:sl,p_activity:act});await loadProfile();renderWeek()}catch(e){alert(e.message)}};ch.appendChild(b)});box.appendChild(ch)}body.appendChild(box)}}}
+function defaultDayIndex(off){
+  if(off!==0)return 0;
+  const n=new Date().getDay();
+  return n===0?0:Math.min(5,Math.max(0,n-1));
+}
+function renderDayTabs(){
+  const tabs=el('dayTabs');tabs.innerHTML='';
+  const today=dateISO(new Date());
+  weekDays.forEach((d,i)=>{
+    const b=document.createElement('button');
+    b.type='button';
+    b.className='day-tab'+(i===selectedDayIndex?' active':'')+(dateISO(d)===today?' today':'');
+    b.innerHTML=`<b>${d.toLocaleDateString('it-IT',{weekday:'short'}).replace('.','')}</b><span>${d.getDate()}</span>`;
+    b.onclick=()=>selectDay(i);
+    tabs.appendChild(b);
+  });
+}
+function selectDay(i){
+  selectedDayIndex=Math.max(0,Math.min(5,i));
+  renderDayTabs();
+  renderSelectedDay();
+}
+function renderSelectedDay(){
+  if(!weekDays.length)return;
+  const d=weekDays[selectedDayIndex],ds=dateISO(d),body=el('agendaBody');
+  el('selectedDay').innerHTML=`<strong>${d.toLocaleDateString('it-IT',{weekday:'long',day:'2-digit',month:'long'})}</strong><small>${agendaRows.filter(x=>x.booking_date===ds&&x.mine).length?'Prenotato':'Scegli un orario'}</small>`;
+  const list=document.createElement('div');list.className='slot-list';
+  let count=0;
+  for(const sl of slots){
+    const rows=agendaRows.filter(x=>x.booking_date===ds&&x.slot_time===sl);
+    const mine=rows.find(x=>x.mine),full=rows.length>=4;
+    const row=document.createElement('div');row.className='slot-row'+(mine?' mine':'')+(full&&!mine?' full':'');
+    const status=mine?'La tua prenotazione':full?'Completo':rows.length?`${4-rows.length} posti disponibili`:'Disponibile';
+    row.innerHTML=`<div class="slot-time">${sl}</div><div class="slot-info"><div class="slot-status ${mine?'mine-label':''}">${mine?'✓ ':''}${status}</div><div class="slot-meta">${rows.length}/4 occupati</div></div>`;
+    const action=document.createElement('button');action.type='button';action.className='slot-action';
+    if(mine){
+      action.classList.add('cancel');action.textContent='Annulla';action.onclick=()=>cancelBooking(mine.id);
+    }else if(full){
+      action.classList.add('full');action.textContent='Pieno';action.disabled=true;
+    }else{
+      action.textContent='Prenota';action.onclick=()=>openBooking(ds,sl,d);
+    }
+    row.appendChild(action);list.appendChild(row);count++;
+  }
+  body.innerHTML='';
+  if(count)body.appendChild(list);else body.innerHTML='<div class="calendar-empty">Nessun orario disponibile per questa giornata.</div>';
+}
+async function renderWeek(){
+  const m=addDays(monday(new Date()),offset*7),to=addDays(m,5);
+  weekDays=Array.from({length:6},(_,i)=>addDays(m,i));
+  el('weekTitle').textContent='Settimana '+m.toLocaleDateString('it-IT',{day:'2-digit',month:'2-digit'})+' – '+to.toLocaleDateString('it-IT',{day:'2-digit',month:'2-digit',year:'numeric'});
+  try{agendaRows=await rpc('client_agenda',{p_session:session,p_from:dateISO(m),p_to:dateISO(to)})}catch(e){el('agendaBody').innerHTML=`<div class="notice bad">${esc(e.message)}</div>`;return}
+  if(selectedDayIndex<0||selectedDayIndex>5)selectedDayIndex=defaultDayIndex(offset);
+  renderDayTabs();renderSelectedDay();
+}
+function openBooking(ds,sl,d){
+  bookingCtx={date:ds,slot:sl};
+  el('bookingWhen').textContent=d.toLocaleDateString('it-IT',{weekday:'long',day:'2-digit',month:'long'})+' · '+sl;
+  showEl('bookingOverlay');
+}
+function closeBooking(){hideEl('bookingOverlay');bookingCtx=null}
+async function confirmBook(activity){
+  if(!bookingCtx)return;
+  try{
+    await rpc('client_book',{p_session:session,p_date:bookingCtx.date,p_slot:bookingCtx.slot,p_activity:activity});
+    closeBooking();await loadProfile();await renderWeek();
+  }catch(e){alert(e.message)}
+}
+async function cancelBooking(id){
+  if(!confirm('Annullare la prenotazione? Se mancano meno di 24 ore, la seduta resterà scalata.'))return;
+  try{await rpc('client_cancel_booking',{p_session:session,p_booking_id:id});await loadProfile();await renderWeek()}catch(e){alert(e.message)}
+}
 async function fileB64(f){return new Promise((ok,no)=>{const r=new FileReader();r.onload=()=>ok(String(r.result).split(',')[1]);r.onerror=no;r.readAsDataURL(f)})}
 el('certFile').addEventListener('change',()=>{el('certFileName').textContent=el('certFile').files?.[0]?.name||'Nessun file selezionato'});
 async function uploadCert(){const f=el('certFile').files?.[0],date=el('certDate').value,msg=el('certMsg'),btn=el('certSendBtn');if(!date){msg.innerHTML='<div class="notice bad">Inserisci la data di scadenza.</div>';return}if(!f){msg.innerHTML='<div class="notice bad">Seleziona il certificato da inviare.</div>';return}if(f.size>5*1024*1024){msg.innerHTML='<div class="notice bad">File troppo grande: massimo 5 MB.</div>';return}if(f.type&&!['application/pdf','image/jpeg','image/png'].includes(f.type)){msg.innerHTML='<div class="notice bad">Sono accettati solo PDF, JPG o PNG.</div>';return}try{btn.disabled=true;btn.textContent='Invio in corso…';msg.innerHTML='';await rpc('client_upload_certificate',{p_session:session,p_file_name:f.name,p_mime_type:f.type,p_expires_on:date,p_base64:await fileB64(f)});el('certFile').value='';el('certFileName').textContent='Nessun file selezionato';await loadProfile();msg.innerHTML='<div class="notice ok"><b>Certificato inviato.</b> Ora è in attesa di verifica da parte della palestra.</div>'}catch(e){msg.innerHTML=`<div class="notice bad">${esc(e.message)}</div>`}finally{btn.disabled=false;btn.textContent='Invia certificato alla palestra'}}
