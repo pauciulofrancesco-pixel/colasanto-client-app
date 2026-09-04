@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
 <meta name="theme-color" content="#111315">
 <meta name="referrer" content="no-referrer">
-<meta name="app-version" content="native-1.0.0-android">
+<meta name="app-version" content="native-1.0.1-android">
 <link rel="apple-touch-icon" href="icon-192.jpg">
 <title>COLASANTO Personal Studio</title>
 <style>
@@ -34,7 +34,7 @@ html{background:var(--bg)}body{margin:0;padding-top:env(safe-area-inset-top);fon
 <header class="brand"><img src="logo-header.jpg" alt="COLASANTO Personal Studio"></header>
 <div class="wrap">
   <div id="loginCard" class="card login-card">
-    <div class="eyebrow">Area riservata · App COLASANTO</div><h1>Accedi alla tua app</h1><p>Usa il numero di telefono registrato in palestra e il tuo PIN personale.</p>
+    <div class="eyebrow">Area riservata · COLASANTO Release 1.0.1</div><h1>Accedi alla tua app</h1><p>Usa il numero di telefono registrato in palestra e il tuo PIN personale.</p>
     <input id="phone" class="field" type="tel" autocomplete="tel" placeholder="Numero di telefono">
     <input id="pin" class="field" inputmode="numeric" autocomplete="one-time-code" placeholder="PIN">
     <button class="btn" onclick="clientLogin()">Accedi</button><div id="loginMsg"></div>
@@ -129,7 +129,7 @@ async function loadProfile(){if(!session)return null;client=await rpc('client_pr
 function renderProfile(){if(!client)return;const name=client.name||'';el('hello').textContent=`Ciao ${name}, benvenuto in COLASANTO Personal Studio.`;el('sub').textContent='Prenota, controlla le tue sedute e gestisci i documenti direttamente dal telefono.';const rem=client.sessions_remaining??'—';el('homeSessions').textContent=rem;el('sessionsMini').textContent=`${rem} sedute`;el('homeType').textContent=client.client_type==='online'?'Personal Online':'Cliente in sede';renderCertificateStatus(client.certificate)}
 function renderCertificateStatus(cert){const box=el('certStatus'),home=el('homeCert'),msg=el('certMsg');if(!box)return;let cls='none',title='Nessun certificato inviato',meta='Quando invii il certificato, qui vedrai se è in attesa, approvato oppure da reinviare.';if(cert){const status=cert.status||'pending';if(status==='pending'){cls='pending';title='In attesa di verifica';meta=`${esc(cert.file_name||'Certificato')} · scadenza ${fmtDate(cert.expires_on)} · inviato ${fmtDateTime(cert.uploaded_at)}. La palestra deve ancora visionarlo.`}else if(status==='approved'){cls='approved';title='Certificato approvato';meta=`${esc(cert.file_name||'Certificato')} · scadenza ${fmtDate(cert.expires_on)}${cert.decided_at?` · approvato ${fmtDateTime(cert.decided_at)}`:''}.`;if(msg)msg.innerHTML=''}else{cls='rejected';title='Certificato da reinviare';meta=`${esc(cert.file_name||'Certificato')} non è stato approvato.${cert.review_note?` Motivo: ${esc(cert.review_note)}.`:''} Scegli il file corretto e invialo nuovamente.`;if(msg)msg.innerHTML=''}}box.className=`cert-status ${cls}`;box.innerHTML=`<div class="status-line"><span class="status-dot"></span><span>${title}</span></div><div class="cert-meta">${meta}</div>`;home.textContent=cert?(cert.status==='approved'?'OK':cert.status==='rejected'?'Reinvia':'In verifica'):'Mancante'}
 async function boot(){if(invite)try{await rpc('client_invite_open',{p_invite_token:invite})}catch{}if(session){try{const cached=localStorage.getItem('colasanto_client_cache');if(cached)try{client=JSON.parse(cached)}catch{}await loadProfile();showApp();renderWeek();loadSheet()}catch{session='';client=null;localStorage.removeItem('colasanto_session');localStorage.removeItem('colasanto_client_cache')}}if((matchMedia('(display-mode: standalone)').matches||navigator.standalone)&&session)markInstalled()}
-async function clientLogin(){try{const d=await rpc('client_native_login',{p_phone:el('phone').value.trim(),p_pin:el('pin').value.trim()});session=d.session_token;client=d.client;localStorage.setItem('colasanto_session',session);await loadProfile();showApp();renderWeek();loadSheet()}catch(e){el('loginMsg').innerHTML=`<div class="notice bad">${esc(e.message)}</div>`}}
+async function clientLogin(){try{const d=await rpc('client_native_login',{p_phone:el('phone').value.trim(),p_pin:el('pin').value.trim()});if(!d||!d.session_token)throw new Error(d?.error||'Credenziali non valide');session=d.session_token;client=d.client;localStorage.setItem('colasanto_session',session);await loadProfile();showApp();renderWeek();loadSheet()}catch(e){el('loginMsg').innerHTML=`<div class="notice bad">${esc(e.message)}</div>`}}
 function showApp(){hideEl('loginCard');showEl('app');showEl('nav');renderProfile()}
 function tab(id){['agenda','docs','sheet'].forEach(x=>x===id?showEl(x):hideEl(x));['Agenda','Docs','Sheet'].forEach(k=>el('nav'+k)?.classList.toggle('active',k.toLowerCase()===id));if(id==='docs')loadProfile().catch(()=>{});if(id==='sheet')loadSheet();window.scrollTo({top:0,behavior:'smooth'})}
 function week(n){
