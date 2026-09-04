@@ -3,13 +3,15 @@ name: Build COLASANTO Android APK
 on:
   workflow_dispatch:
   push:
-    branches: [ main ]
+    branches:
+      - main
 
 jobs:
   android:
     runs-on: ubuntu-latest
     permissions:
       contents: read
+
     steps:
       - uses: actions/checkout@v4
 
@@ -23,7 +25,9 @@ jobs:
           java-version: '21'
 
       - name: Install dependencies
-        run: npm install --no-audit --no-fund
+        run: |
+          npm install --no-audit --no-fund
+          npm install --save-dev typescript
 
       - name: Create Android project
         run: npx cap add android
@@ -43,7 +47,8 @@ jobs:
       - name: Rename APK
         run: cp android/app/build/outputs/apk/debug/app-debug.apk COLASANTO_CLIENT_ANDROID_TEST.apk
 
-      - uses: actions/upload-artifact@v4
+      - name: Upload APK
+        uses: actions/upload-artifact@v4
         with:
           name: COLASANTO_CLIENT_ANDROID_TEST
           path: COLASANTO_CLIENT_ANDROID_TEST.apk
