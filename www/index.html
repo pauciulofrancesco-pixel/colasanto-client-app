@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
 <meta name="theme-color" content="#111315">
 <meta name="referrer" content="no-referrer">
-<meta name="app-version" content="native-v10-android-ios">
+<meta name="app-version" content="native-1.0.0-android">
 <link rel="apple-touch-icon" href="icon-192.jpg">
 <title>COLASANTO Personal Studio</title>
 <style>
@@ -34,7 +34,7 @@ html{background:var(--bg)}body{margin:0;padding-top:env(safe-area-inset-top);fon
 <header class="brand"><img src="logo-header.jpg" alt="COLASANTO Personal Studio"></header>
 <div class="wrap">
   <div id="loginCard" class="card login-card">
-    <div class="eyebrow">Area riservata · App nativa v10</div><h1>Accedi alla tua app</h1><p>Usa il numero di telefono registrato in palestra e il tuo PIN personale.</p>
+    <div class="eyebrow">Area riservata · App COLASANTO</div><h1>Accedi alla tua app</h1><p>Usa il numero di telefono registrato in palestra e il tuo PIN personale.</p>
     <input id="phone" class="field" type="tel" autocomplete="tel" placeholder="Numero di telefono">
     <input id="pin" class="field" inputmode="numeric" autocomplete="one-time-code" placeholder="PIN">
     <button class="btn" onclick="clientLogin()">Accedi</button><div id="loginMsg"></div>
@@ -323,29 +323,35 @@ function buildSimplePdf(lines){
 function blobToBase64(blob){return new Promise((resolve,reject)=>{const r=new FileReader();r.onload=()=>resolve(String(r.result).split(',')[1]||'');r.onerror=()=>reject(r.error||new Error('Lettura PDF non riuscita'));r.readAsDataURL(blob)})}
 function nativePlugin(name){try{return window.Capacitor?.Plugins?.[name]||null}catch{return null}}
 async function saveNativeBase64(data,fileName,mimeType='application/pdf'){
-  const Filesystem=nativePlugin('Filesystem');
-  if(!Filesystem)throw new Error('Salvataggio nativo non disponibile in questa build');
   const safe=(fileName||'COLASANTO_documento.pdf').replace(/[\/:*?"<>|]+/g,'_');
-  const path=`COLASANTO/${safe}`;
-  try{await Filesystem.mkdir({path:'COLASANTO',directory:'DOCUMENTS',recursive:true})}catch{}
-  await Filesystem.writeFile({path,data,directory:'DOCUMENTS',recursive:true});
-  let uri='';try{uri=(await Filesystem.getUri({path,directory:'DOCUMENTS'})).uri||''}catch{}
-  el('sheetMsg').innerHTML=`<div class="notice ok"><b>Download completato.</b><br>${esc(safe)} è stato salvato in Documenti/COLASANTO.</div>`;
-  return {path,uri};
+  const NativeFiles=nativePlugin('ColasantoFiles');
+  if(NativeFiles){
+    const r=await NativeFiles.saveBase64({base64:data,fileName:safe,mimeType:mimeType||'application/octet-stream'});
+    el('sheetMsg').innerHTML=`<div class="notice ok"><b>File salvato.</b><br>${esc(safe)} è stato salvato nella posizione scelta sul telefono.</div>`;
+    return r||{};
+  }
+  const Filesystem=nativePlugin('Filesystem');
+  if(Filesystem){
+    const path=`COLASANTO/${safe}`;
+    await Filesystem.writeFile({path,data,directory:'DATA',recursive:true});
+    el('sheetMsg').innerHTML=`<div class="notice ok"><b>File salvato nell'app.</b><br>${esc(safe)}</div>`;
+    return {path};
+  }
+  throw new Error('Salvataggio nativo non disponibile in questa build');
 }
 async function downloadSheetPdf(){
   if(!currentSheet)return;
   const name=`COLASANTO_Scheda_${(client?.name||'cliente').replace(/[^a-z0-9_-]+/gi,'_')}.pdf`;
   try{
     const blob=buildSimplePdf(sheetTextLines());
-    if(window.Capacitor?.isNativePlatform?.()&&nativePlugin('Filesystem')){
+    if(window.Capacitor?.isNativePlatform?.()){
       const base64=await blobToBase64(blob);await saveNativeBase64(base64,name,'application/pdf');return;
     }
     const url=URL.createObjectURL(blob),a=document.createElement('a');a.href=url;a.download=name;document.body.appendChild(a);a.click();a.remove();setTimeout(()=>URL.revokeObjectURL(url),2500)
   }catch(e){el('sheetMsg').innerHTML=`<div class="notice bad">Impossibile salvare il PDF: ${esc(e.message)}</div>`}
 }
 function printSheet(){const ds=[...el('sheetBody').querySelectorAll('details')],was=ds.map(d=>d.open);ds.forEach(d=>d.open=true);window.print();setTimeout(()=>ds.forEach((d,i)=>d.open=was[i]),400)}
-async function loadSheet(){if(!session)return;const msg=el('sheetMsg'),body=el('sheetBody');try{const s=await rpc('client_latest_sheet',{p_session:session});currentSheet=s||null;if(!s){msg.innerHTML='<div class="notice">Nessuna scheda caricata al momento.</div>';body.innerHTML='';hideEl('sheetToolbar');hideEl('downloadNote');hideEl('workoutPanel');return}msg.innerHTML=`<div class="notice ok"><b>${esc(s.title||s.name||'Scheda allenamento')}</b><br>Scheda v${esc(s.version)} · aggiornata ${new Date(s.uploaded_at).toLocaleDateString('it-IT')}${s.is_new?' · <b>NUOVA</b>':''}</div>`;body.innerHTML=compactSheetHTML(s.html_content||'<p>Scheda disponibile come file.</p>');el('workoutDate').value=el('workoutDate').value||todayISO();showEl('workoutPanel');showEl('sheetToolbar');showEl('downloadNote');await loadWorkoutHistory();applyWorkoutDate();if(s.file_base64){const a=document.createElement('button');a.type='button';a.className='btn soft no-print';a.style.display='block';a.style.textAlign='center';a.textContent='⬇️ Salva file originale';a.onclick=async()=>{try{if(window.Capacitor?.isNativePlatform?.()&&nativePlugin('Filesystem')){await saveNativeBase64(s.file_base64,s.file_name||'scheda','application/octet-stream')}else{const x=document.createElement('a');x.href='data:application/octet-stream;base64,'+s.file_base64;x.download=s.file_name||'scheda';document.body.appendChild(x);x.click();x.remove()}}catch(e){msg.innerHTML=`<div class="notice bad">Impossibile salvare il file: ${esc(e.message)}</div>`}};body.appendChild(a)}}catch(e){currentSheet=null;msg.innerHTML=`<div class="notice bad">${esc(e.message)}</div>`;hideEl('sheetToolbar');hideEl('downloadNote');hideEl('workoutPanel')}}
+async function loadSheet(){if(!session)return;const msg=el('sheetMsg'),body=el('sheetBody');try{const s=await rpc('client_latest_sheet',{p_session:session});currentSheet=s||null;if(!s){msg.innerHTML='<div class="notice">Nessuna scheda caricata al momento.</div>';body.innerHTML='';hideEl('sheetToolbar');hideEl('downloadNote');hideEl('workoutPanel');return}msg.innerHTML=`<div class="notice ok"><b>${esc(s.title||s.name||'Scheda allenamento')}</b><br>Scheda v${esc(s.version)} · aggiornata ${new Date(s.uploaded_at).toLocaleDateString('it-IT')}${s.is_new?' · <b>NUOVA</b>':''}</div>`;body.innerHTML=compactSheetHTML(s.html_content||'<p>Scheda disponibile come file.</p>');el('workoutDate').value=el('workoutDate').value||todayISO();showEl('workoutPanel');showEl('sheetToolbar');showEl('downloadNote');await loadWorkoutHistory();applyWorkoutDate();if(s.file_base64){const a=document.createElement('button');a.type='button';a.className='btn soft no-print';a.style.display='block';a.style.textAlign='center';a.textContent='⬇️ Salva file originale';a.onclick=async()=>{try{if(window.Capacitor?.isNativePlatform?.()){await saveNativeBase64(s.file_base64,s.file_name||'scheda','application/octet-stream')}else{const x=document.createElement('a');x.href='data:application/octet-stream;base64,'+s.file_base64;x.download=s.file_name||'scheda';document.body.appendChild(x);x.click();x.remove()}}catch(e){msg.innerHTML=`<div class="notice bad">Impossibile salvare il file: ${esc(e.message)}</div>`}};body.appendChild(a)}}catch(e){currentSheet=null;msg.innerHTML=`<div class="notice bad">${esc(e.message)}</div>`;hideEl('sheetToolbar');hideEl('downloadNote');hideEl('workoutPanel')}}
 async function markInstalled(){if(session)try{await rpc('client_mark_installed',{p_session:session})}catch{}}
 // Native bundle: nessun prompt PWA e nessun service worker.
 boot();

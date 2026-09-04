@@ -33,3 +33,17 @@ IMPORTANTE
 - Questa è una base TEST nativa. Non è ancora la build App Store/Play definitiva.
 - L'App Store richiederà account Apple Developer, firma e revisione.
 - Quando avremo i link finali Android/iPhone, il gestionale userà il link unico "Installa COLASANTO" nei messaggi WhatsApp.
+
+
+=== CARICAMENTO SU GITHUB (WEB) ===
+1. Estrai questo ZIP sul PC.
+2. Nel repository colasanto-client-app apri Add file > Upload files.
+3. Trascina IL CONTENUTO della cartella estratta, non il file ZIP:
+   .github/  resources/  www/  package.json  capacitor.config.ts
+   BUILD_ANDROID_TEST.bat  PREPARA_IOS_MAC.command  README_COLASANTO_MOBILE.txt
+4. I vecchi file PWA nella root possono restare durante il test.
+5. Commit directly to main.
+6. Il workflow Build COLASANTO Android APK parte automaticamente.
+7. In Actions apri l'esecuzione, attendi il segno verde e scarica l'artifact COLASANTO_CLIENT_ANDROID_TEST.
+
+Nota: il workflow usa npm install senza cache, quindi non richiede package-lock.json.

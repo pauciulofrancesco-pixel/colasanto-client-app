@@ -1,0 +1,29 @@
+COLASANTO - FIRMA ANDROID PERMANENTE (UNA SOLA VOLTA)
+
+Perche serve:
+- la vecchia APK TEST era firmata ogni volta con una chiave temporanea;
+- la release definitiva usa sempre la stessa chiave;
+- dopo la PRIMA installazione definitiva, gli aggiornamenti successivi si installeranno sopra l'app senza disinstallarla.
+
+PASSO 1 - sul PC
+Tasto destro su GENERA_FIRMA_ANDROID.ps1 -> Esegui con PowerShell.
+Scegli una password di almeno 8 caratteri e CONSERVALA.
+Vengono creati:
+- colasanto-release.jks  (CHIAVE PRIVATA: non caricarla nel repository)
+- ANDROID_KEYSTORE_BASE64.txt
+
+PASSO 2 - su GitHub
+Repository colasanto-client-app -> Settings -> Secrets and variables -> Actions -> New repository secret.
+Crea esattamente questi 2 secrets:
+1) ANDROID_KEYSTORE_BASE64 = tutto il contenuto di ANDROID_KEYSTORE_BASE64.txt
+2) ANDROID_KEYSTORE_PASSWORD = la password scelta al PASSO 1
+
+PASSO 3 - carica i file di questa versione nel repository e fai commit su main.
+La GitHub Action generera:
+- COLASANTO_CLIENT_ANDROID.apk (installazione diretta)
+- COLASANTO_CLIENT_ANDROID.aab (Play Store, per il futuro)
+
+IMPORTANTE
+La prima volta che passi dalla vecchia TEST alla release firmata dovrai disinstallare la TEST una sola volta.
+Dalla release definitiva in poi NON disinstallare piu l'app: installa semplicemente la nuova APK sopra quella esistente.
+Se perdi colasanto-release.jks o la password, non potrai piu aggiornare l'app gia installata con la stessa identita.
